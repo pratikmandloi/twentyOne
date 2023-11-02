@@ -1,0 +1,518 @@
+<html>
+
+<head>
+   <meta name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0,user-scalable=0">
+   <title>Twenty One - Collections</title>
+   <link href="../assets/css/main3a1a.css?v99" type="text/css" rel="stylesheet">
+
+</head>
+
+
+
+
+
+<body id="about" class="collections-id add">
+
+   <div id="sticky-anchor"></div>
+   <div id="sticky" class='a1'>
+      <h1 class='titleMusic noSelect'>Look 1/14</h1>
+   </div>
+
+   <div class="close-button collection-show" onclick="history.go(-1);">CLOSE</div>
+
+   <div class="wrap">
+      <h2>21 <small>- with all the navigation options enabled</small></h2>
+
+      <div class="scrollbar">
+         <div class="handle">
+            <div class="mousearea"></div>
+         </div>
+      </div>
+
+      <div class="frame" id="basic">
+         <ul class="clearfix add" id="collection-list">
+
+            <li id="section2"><a href="#">
+                  <img src="c1.jpg"></a>
+               <span>Look 1/14</span>
+            </li>
+            
+         </ul>
+
+      </div>
+   </div>
+
+
+
+
+
+   <script src="../../ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="../assets/js/nga-plugins.js"></script>
+   <script src="../assets/js/nga-sly.min.js"></script>
+
+
+   <!-- <script>
+                function myFunction() {
+                var element = document.getElementById("close");
+                element.classList.remove("collection-show");
+                }
+            </script> -->
+
+   <script>
+      jQuery(function ($) {
+         'use strict';
+         // -------------------------------------------------------------
+         //   Basic Navigation
+         // -------------------------------------------------------------
+      
+         (function () {
+            var $frame = $('#basic');
+            var $slidee = $frame.children('ul').eq(0);
+            var $wrap = $frame.parent();
+
+            // Call Sly on frame
+            $frame.sly({
+               horizontal: 1,
+               itemNav: 'basic',
+               smart: 1,
+               activateOn: '',
+               mouseDragging: 1,
+               touchDragging: 1,
+               releaseSwing: 1,
+               startAt: 0,
+               scrollBar: $wrap.find('.scrollbar'),
+               scrollBy: 1,
+               pagesBar: $wrap.find('.pages'),
+               activatePageOn: '',
+               speed: 300,
+               elasticBounds: 1,
+               easing: 'easeOutExpo',
+               dragHandle: 1,
+               dynamicHandle: 1,
+               clickBar: 1,
+
+               // Buttons
+               forward: $wrap.find('.forward'),
+               backward: $wrap.find('.backward'),
+               prev: $wrap.find('.prev'),
+               next: $wrap.find('.next'),
+               prevPage: $wrap.find('.prevPage'),
+               nextPage: $wrap.find('.nextPage')
+            });
+
+            // To Start button
+            $wrap.find('.toStart').load('index.html', function () {
+               var item = $(this).data('item');
+               // Animate a particular item to the start of the frame.
+               // If no item is provided, the whole content will be animated.
+               $frame.sly('toStart', item);
+            });
+
+            // To Center button
+            $wrap.find('.toCenter').load('index.html', function () {
+               var item = $(this).data('item');
+               // Animate a particular item to the center of the frame.
+               // If no item is provided, the whole content will be animated.
+               $frame.sly('toCenter', item);
+            });
+
+            // To End button
+            $wrap.find('.toEnd').load('index.html', function () {
+               var item = $(this).data('item');
+               // Animate a particular item to the end of the frame.
+               // If no item is provided, the whole content will be animated.
+               $frame.sly('toEnd', item);
+            });
+
+            // Add item
+            
+            // $wrap.find('.add').on('click', function () {
+            //    $frame.sly('add', '<li>' + $slidee.children().length + '</li>');
+            // });
+
+            $('.add').click(function () {
+               $frame.sly('add', '<li>' + $slidee.children().length + '</li>');
+            });
+
+            // Remove item
+            $wrap.find('.remove').load('index.html', function () {
+               $frame.sly('remove', -1);
+            });
+         }());
+
+         // -------------------------------------------------------------
+         //   Centered Navigation
+         // -------------------------------------------------------------
+         (function () {
+            var $frame = $('#centered');
+            var $wrap = $frame.parent();
+
+            // Call Sly on frame
+            $frame.sly({
+               horizontal: 1,
+               itemNav: 'centered',
+               smart: 1,
+               activateOn: 'click',
+               mouseDragging: 1,
+               touchDragging: 1,
+               releaseSwing: 1,
+               startAt: 4,
+               scrollBar: $wrap.find('.scrollbar'),
+               scrollBy: 1,
+               speed: 300,
+               elasticBounds: 1,
+               easing: 'easeOutExpo',
+               dragHandle: 1,
+               dynamicHandle: 1,
+               clickBar: 1,
+
+               // Buttons
+               prev: $wrap.find('.prev'),
+               next: $wrap.find('.next')
+            });
+         }());
+
+         // -------------------------------------------------------------
+         //   Force Centered Navigation
+         // -------------------------------------------------------------
+         (function () {
+            var $frame = $('#forcecentered');
+            var $wrap = $frame.parent();
+
+            // Call Sly on frame
+            $frame.sly({
+               horizontal: 1,
+               itemNav: 'forceCentered',
+               smart: 1,
+               activateMiddle: 1,
+               activateOn: 'click',
+               mouseDragging: 1,
+               touchDragging: 1,
+               releaseSwing: 1,
+               startAt: 0,
+               scrollBar: $wrap.find('.scrollbar'),
+               scrollBy: 1,
+               speed: 300,
+               elasticBounds: 1,
+               easing: 'easeOutExpo',
+               dragHandle: 1,
+               dynamicHandle: 1,
+               clickBar: 1,
+
+               // Buttons
+               prev: $wrap.find('.prev'),
+               next: $wrap.find('.next')
+            });
+         }());
+
+         // -------------------------------------------------------------
+         //   Cycle By Items
+         // -------------------------------------------------------------
+         (function () {
+            var $frame = $('#cycleitems');
+            var $wrap = $frame.parent();
+
+            // Call Sly on frame
+            $frame.sly({
+               horizontal: 1,
+               itemNav: 'basic',
+               smart: 1,
+               activateOn: 'click',
+               mouseDragging: 1,
+               touchDragging: 1,
+               releaseSwing: 1,
+               startAt: 0,
+               scrollBar: $wrap.find('.scrollbar'),
+               scrollBy: 1,
+               speed: 300,
+               elasticBounds: 1,
+               easing: 'easeOutExpo',
+               dragHandle: 1,
+               dynamicHandle: 1,
+               clickBar: 1,
+
+               // Cycling
+               cycleBy: 'items',
+               cycleInterval: 1000,
+               pauseOnHover: 1,
+
+               // Buttons
+               prev: $wrap.find('.prev'),
+               next: $wrap.find('.next')
+            });
+
+            // Pause button
+            $wrap.find('.pause').on('click', function () {
+               $frame.sly('pause');
+            });
+
+            // Resume button
+            $wrap.find('.resume').on('click', function () {
+               $frame.sly('resume');
+            });
+
+            // Toggle button
+            $wrap.find('.toggle').on('click', function () {
+               $frame.sly('toggle');
+            });
+         }());
+
+         // -------------------------------------------------------------
+         //   Cycle By Pages
+         // -------------------------------------------------------------
+         (function () {
+            var $frame = $('#cyclepages');
+            var $wrap = $frame.parent();
+
+            // Call Sly on frame
+            $frame.sly({
+               horizontal: 1,
+               itemNav: 'basic',
+               smart: 1,
+               activateOn: 'click',
+               mouseDragging: 1,
+               touchDragging: 1,
+               releaseSwing: 1,
+               startAt: 0,
+               scrollBar: $wrap.find('.scrollbar'),
+               scrollBy: 1,
+               pagesBar: $wrap.find('.pages'),
+               activatePageOn: 'click',
+               speed: 300,
+               elasticBounds: 1,
+               easing: 'easeOutExpo',
+               dragHandle: 1,
+               dynamicHandle: 1,
+               clickBar: 1,
+
+               // Cycling
+               cycleBy: 'pages',
+               cycleInterval: 1000,
+               pauseOnHover: 1,
+               startPaused: 1,
+
+               // Buttons
+               prevPage: $wrap.find('.prevPage'),
+               nextPage: $wrap.find('.nextPage')
+            });
+
+            // Pause button
+            $wrap.find('.pause').on('click', function () {
+               $frame.sly('pause');
+            });
+
+            // Resume button
+            $wrap.find('.resume').on('click', function () {
+               $frame.sly('resume');
+            });
+
+            // Toggle button
+            $wrap.find('.toggle').on('click', function () {
+               $frame.sly('toggle');
+            });
+         }());
+
+         // -------------------------------------------------------------
+         //   One Item Per Frame
+         // -------------------------------------------------------------
+         (function () {
+            var $frame = $('#oneperframe');
+            var $wrap = $frame.parent();
+
+            // Call Sly on frame
+            $frame.sly({
+               horizontal: 1,
+               itemNav: 'forceCentered',
+               smart: 1,
+               activateMiddle: 1,
+               mouseDragging: 1,
+               touchDragging: 1,
+               releaseSwing: 1,
+               startAt: 0,
+               scrollBar: $wrap.find('.scrollbar'),
+               scrollBy: 1,
+               speed: 300,
+               elasticBounds: 1,
+               easing: 'easeOutExpo',
+               dragHandle: 1,
+               dynamicHandle: 1,
+               clickBar: 1,
+
+               // Buttons
+               prev: $wrap.find('.prev'),
+               next: $wrap.find('.next')
+            });
+         }());
+
+         // -------------------------------------------------------------
+         //   Crazy
+         // -------------------------------------------------------------
+         (function () {
+            var $frame = $('#crazy');
+            var $slidee = $frame.children('ul').eq(0);
+            var $wrap = $frame.parent();
+
+            // Call Sly on frame
+            $frame.sly({
+               horizontal: 1,
+               itemNav: 'basic',
+               smart: 1,
+               activateOn: 'click',
+               mouseDragging: 1,
+               touchDragging: 1,
+               releaseSwing: 1,
+               startAt: 3,
+               scrollBar: $wrap.find('.scrollbar'),
+               scrollBy: 1,
+               pagesBar: $wrap.find('.pages'),
+               activatePageOn: 'click',
+               speed: 300,
+               elasticBounds: 1,
+               easing: 'easeOutExpo',
+               dragHandle: 1,
+               dynamicHandle: 1,
+               clickBar: 1,
+
+               // Buttons
+               forward: $wrap.find('.forward'),
+               backward: $wrap.find('.backward'),
+               prev: $wrap.find('.prev'),
+               next: $wrap.find('.next'),
+               prevPage: $wrap.find('.prevPage'),
+               nextPage: $wrap.find('.nextPage')
+            });
+
+            // To Start button
+            $wrap.find('.toStart').on('click', function () {
+               var item = $(this).data('item');
+               // Animate a particular item to the start of the frame.
+               // If no item is provided, the whole content will be animated.
+               $frame.sly('toStart', item);
+            });
+
+            // To Center button
+            $wrap.find('.toCenter').on('click', function () {
+               var item = $(this).data('item');
+               // Animate a particular item to the center of the frame.
+               // If no item is provided, the whole content will be animated.
+               $frame.sly('toCenter', item);
+            });
+
+            // To End button
+            $wrap.find('.toEnd').on('click', function () {
+               var item = $(this).data('item');
+               // Animate a particular item to the end of the frame.
+               // If no item is provided, the whole content will be animated.
+               $frame.sly('toEnd', item);
+            });
+
+            // Add item
+            $wrap.find('.add',).on('click', function () {
+               $frame.sly('add', '<li>' + $slidee.children().length + '</li>');
+            });
+            // const collectionDataAdd = $frame.sly('add', '<li>' + $slidee.children().length + '</li>')
+            // $wrap.find(".add",collectionDataAdd)
+            // window.addEventListener('load', () => {
+            //    // Assuming $frame and $slidee are already defined.
+            //    var newElement = '<li>' + $slidee.children().length + '</li>';
+            //    $frame.sly('add', newElement);
+
+            // })
+
+            // Remove item
+            $wrap.find('.remove').on('click', function () {
+               $frame.sly('remove', -1);
+            });
+         }());
+      });
+   </script>
+
+
+
+   <script>
+      function sticky_relocate() {
+         var window_top = $(window).scrollTop();
+         var div_top = $('#sticky-anchor').offset().top;
+         if (window_top > div_top) {
+            $('#sticky').addClass('stick');
+         }
+         else {
+            $('#sticky').removeClass('stick');
+         }
+      }
+
+      $(function () {
+         $(window).scroll(function () {
+            sticky_relocate();
+            if ($(window).scrollTop() > $('#section1').offset().top
+               && $(window).scrollTop() < $('#section1').offset().top + $('#section1').outerHeight(true)
+            ) {
+               $('#sticky h1').text('Look 2/14');
+            } else if ($(window).scrollTop() > $('#section2').offset().top
+               && $(window).scrollTop() < $('#section2').offset().top + $('#section2').outerHeight(true)
+            ) {
+               $('#sticky h1').text('Look 3/14');
+            } else if ($(window).scrollTop() > $('#section3').offset().top
+               && $(window).scrollTop() < $('#section3').offset().top + $('#section3').outerHeight(true)
+            ) {
+               $('#sticky h1').text('Look 4/14');
+            } else if ($(window).scrollTop() > $('#section4').offset().top
+               && $(window).scrollTop() < $('#section4').offset().top + $('#section4').outerHeight(true)
+            ) {
+               $('#sticky h1').text('Look 5/14');
+            } else if ($(window).scrollTop() > $('#section5').offset().top
+               && $(window).scrollTop() < $('#section5').offset().top + $('#section5').outerHeight(true)
+            ) {
+               $('#sticky h1').text('Look 6/14');
+            } else if ($(window).scrollTop() > $('#section6').offset().top
+               && $(window).scrollTop() < $('#section6').offset().top + $('#section6').outerHeight(true)
+            ) {
+               $('#sticky h1').text('Look 7/14');
+            } else if ($(window).scrollTop() > $('#section7').offset().top
+               && $(window).scrollTop() < $('#section7').offset().top + $('#section7').outerHeight(true)
+            ) {
+               $('#sticky h1').text('Look 8/14');
+            } else if ($(window).scrollTop() > $('#section8').offset().top
+               && $(window).scrollTop() < $('#section8').offset().top + $('#section8').outerHeight(true)
+            ) {
+               $('#sticky h1').text('Look 9/14');
+            } else if ($(window).scrollTop() > $('#section9').offset().top
+               && $(window).scrollTop() < $('#section9').offset().top + $('#section9').outerHeight(true)
+            ) {
+               $('#sticky h1').text('Look 10/14');
+            } else if ($(window).scrollTop() > $('#section10').offset().top
+               && $(window).scrollTop() < $('#section10').offset().top + $('#section10').outerHeight(true)
+            ) {
+               $('#sticky h1').text('Look 11/14');
+            } else if ($(window).scrollTop() > $('#section11').offset().top
+               && $(window).scrollTop() < $('#section11').offset().top + $('#section11').outerHeight(true)
+            ) {
+               $('#sticky h1').text('Look 12/14');
+            } else if ($(window).scrollTop() > $('#section12').offset().top
+               && $(window).scrollTop() < $('#section12').offset().top + $('#section12').outerHeight(true)
+            ) {
+               $('#sticky h1').text('Look 13/14');
+            } else if ($(window).scrollTop() > $('#section13').offset().top
+               && $(window).scrollTop() < $('#section13').offset().top + $('#section13').outerHeight(true)
+            ) {
+               $('#sticky h1').text('Look 14/14');
+            } else if ($(window).scrollTop() > $('#section14').outerHeight(true)
+            ) {
+               $('#sticky h1').text('Look 14/14');
+            } else {
+               $('#sticky h1').text('Look 1/14');
+            }
+         });
+      });
+   </script>
+
+
+</body>
+
+
+
+
+
+
+</html>

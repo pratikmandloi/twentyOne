@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="../twenty one/css/custom.css" /> -->
+    <link rel="stylesheet" href="./css/slick.css">
+    <link rel="stylesheet" href="./css/slick-theme.css">
+    <link href="./css/custom.css" rel="stylesheet">
+
+    <title>All Products | Twenty One</title>
+    <style>
+        #trend-home {
+            overflow-x: hidden;
+        }
+
+        img:hover {
+            cursor: pointer;
+        }
+
+        .right a {
+            font-size: 10px !important;
+        }
+
+        #noise {
+            margin-top: 80px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
+            width: 70%;
+            margin: auto;
+            gap: 20px;
+            margin-top: 150px;
+            margin-bottom: 180px;
+        }
+
+        #noise>div>div>img {
+            width: 100%;
+        }
+
+        #noise>div>div:last-child {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #noise>div>div:last-child>p {
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 0px;
+            color: grey;
+        }
+
+        #noise>div>div:last-child>p:first-child:hover {
+            cursor: pointer;
+        }
+
+        #img {
+            margin-top: 80px;
+            display: grid;
+            grid-template-columns: repeat(10, 300px);
+            grid-template-rows: auto;
+            overflow-x: auto;
+            border-radius: 10px;
+            gap: 20px;
+            margin-left: 50px;
+            margin-bottom: 80px;
+        }
+
+        #img::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        #img>div>div:first-child>img {
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        #img>div:nth-child(5)>div:first-child>img {
+            border-radius: 10px;
+            width: 100%;
+            height: 450px;
+        }
+
+        #img>div:nth-child(7)>div:first-child>img {
+            border-radius: 10px;
+            width: 100%;
+            height: 450px;
+        }
+
+        #img>div>div:last-child {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #img>div>div:last-child>p {
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 0px;
+            color: grey;
+        }
+
+        #img>div>div:last-child>p:first-child {
+            cursor: pointer;
+        }
+
+        #div {
+            width: 74%;
+            margin: auto;
+            margin-bottom: 140px;
+        }
+
+        #div>img {
+            width: 100%;
+            cursor: default;
+        }
+
+        #img2 {
+            margin-top: 80px;
+            display: grid;
+            grid-template-columns: repeat(10, 300px);
+            grid-template-rows: auto;
+            overflow-x: auto;
+            border-radius: 10px;
+            gap: 20px;
+            margin-left: 50px;
+            margin-bottom: 80px;
+        }
+
+        #img2::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        #img2>div>div:first-child>img {
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        #img2>div:nth-child(5)>div:first-child>img {
+            border-radius: 10px;
+            width: 100%;
+            height: 450px;
+        }
+
+        #img>div:nth-child(7)>div:first-child>img {
+            border-radius: 10px;
+            width: 100%;
+            height: 450px;
+        }
+
+        #img2>div>div:last-child {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #img2>div>div:last-child>p {
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 0px;
+            color: grey;
+        }
+
+        #img2>div>div:last-child>p:first-child {
+            cursor: pointer;
+        }
+
+        #img2>div>div:last-child>p:first-child:hover {
+            text-decoration: underline;
+        }
+
+        #img>div>div:last-child>p:first-child:hover {
+            text-decoration: underline;
+        }
+
+        /* botom part css */
+
+        #ending {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto;
+            gap: 15px;
+            width: 50%;
+            margin: auto;
+        }
+
+        /* 
+        #trend-home h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+            width: 50%;
+            margin: auto;
+            margin-bottom: 20px;
+        } */
+
+        #ending>a {
+            margin-right: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+            font-size: 9px;
+            /* margin: auto; */
+            color: grey;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #ending {
+            margin-bottom: 400px;
+        }
+
+        #ending>a:hover {
+            text-decoration: underline;
+        }
+
+        #LETTER {
+            margin-left: 180px;
+        }
+
+        #LETTER>div {
+            margin-top: 130px;
+        }
+
+        #LETTER>div>a {
+            margin-right: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+            font-size: 9px;
+            /* margin: auto; */
+            color: grey;
+            text-decoration: none;
+        }
+
+        #LETTER>div>a:hover {
+            text-decoration: underline;
+        }
+
+        #input {
+            width: 19%;
+            border: transparent;
+            border-bottom: 1px solid black;
+        }
+
+        #input:placeholder-shown {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            position: absolute;
+        }
+
+        /* #input:hover{
+    text-overflow:inherit;
+} */
+
+        #LETTER>p {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        #option {
+            width: 75%;
+            margin: 100px auto;
+            display: grid;
+            grid-template-columns: repeat(4, 140px);
+            grid-template-rows: repeat(9, 50px);
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-stretch: extra-condensed;
+            gap: 80px;
+        }
+
+        #option>div>ul>li {
+            width: 900px;
+        }
+
+        #second {
+            width: 75%;
+            margin: -400px auto 90px;
+            display: flex;
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-stretch: extra-condensed;
+        }
+
+        #second>p:nth-child(1) {
+            margin-right: 850px;
+        }
+
+        #second>p:nth-child(2) {
+            margin-right: 20px;
+        }
+
+        #second>p:nth-child(3) {
+            color: #e8ddd6;
+        }
+
+        ul {
+            list-style: none;
+            line-height: 8px;
+            font-size: 9px;
+        }
+
+        li {
+            margin-left: 0px;
+        }
+
+        li:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        #end {
+            width: 75%;
+            margin: auto;
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-stretch: extra-condensed;
+            padding-bottom: 80px;
+        }
+
+        /* // nav bar css start */
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        #nav {
+            display: flex;
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+            justify-content: space-between;
+            background-color: transparent;
+            position: fixed;
+            top: 0px;
+        }
+
+        #menu {
+            display: grid;
+            width: 1.6%;
+            height: 20%;
+            margin-top: 0.7%;
+            align-content: space-around;
+            margin-left: 2%;
+            background-color: transparent;
+        }
+
+        #menu>div {
+            height: 1px;
+            background-color: black;
+            transition: 0.4s;
+        }
+
+        #one {
+            width: 90%;
+        }
+
+        #two {
+            width: 60%;
+        }
+
+        #three {
+            width: 70%;
+        }
+
+        #menu:hover div {
+            width: 90%;
+        }
+
+        #logo {
+            width: 16%;
+        }
+
+        #logo>a>img {
+            width: 100%;
+        }
+
+        #gap {
+            width: 40%;
+            background-color: transparent;
+        }
+
+        a {
+            text-decoration: none;
+            font-weight: none;
+            color: black;
+        }
+
+        /* #cart {
+            display: flex;
+            width: 5%;
+            height: 35%;
+            background-color: transparent;
+            margin-right: 2%;
+        } */
+
+        #search {
+            margin-top: 0.7%;
+        }
+
+        #loghelp {
+            display: flex;
+            width: 10%;
+            background-color: transparent;
+            justify-content: space-between;
+            margin-top: 0.7%;
+        }
+
+        /* #cart>img {
+            width: 45%;
+            height: 100%;
+            background-color: transparent;
+        } */
+
+        #h3 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+            width: 52%;
+            margin: auto;
+            margin-bottom: 10px;
+            color: rgb(71, 65, 65);
+        }
+
+        #p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+            width: 52%;
+            margin: auto;
+            line-height: 15px;
+            font-size: 9px;
+            color: grey;
+
+
+            margin-bottom: 120px;
+
+        }
+
+        p>a {
+            color: grey
+        }
+
+        #firstSec {
+            width: 85%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+            margin: auto;
+            margin-top: 150px;
+        }
+
+        img{
+            width: 100%;
+        }
+
+        img:hover {
+            cursor: pointer;
+        }
+
+        #firstSec>div>div:last-child {
+
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #firstSec>div>div>p {
+            font-size: 10px;
+            color: grey;
+            margin-top: 0px;
+        }
+
+        #firstSec>div>div>p:first-child:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        #firstSec>div {
+            margin-bottom: 100px;
+
+
+        }
+
+        #secondSec {
+            width: 85%;
+            display: grid;
+            margin: auto;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+
+        }
+
+        #secondSec>div {
+            margin-bottom: 100px;
+        }
+
+        #secondSec>div>div>p {
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 0px;
+            color: grey;
+        }
+
+        #secondSec>div>div:last-child {
+
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #secondSec>div>div>p:first-child:hover {
+            cursor: pointer;
+            text-decoration: underline;
+
+        }
+
+        #ending {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto;
+            gap: 15px;
+
+            width: 50%;
+            margin: auto;
+        }
+
+        /* 
+        h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+            width: 50%;
+            margin: auto;
+            margin-bottom: 20px;
+        } */
+
+        #ending>a {
+
+            margin-right: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+            font-size: 9px;
+            /* margin: auto; */
+            color: grey;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        #ending {
+            margin-bottom: 400px;
+        }
+
+        #ending>a:hover {
+            text-decoration: underline;
+
+        }
+
+        #LETTER {
+            margin-left: 180px;
+
+        }
+
+        #LETTER>div {
+
+            margin-top: 130px;
+        }
+
+        #LETTER>div>a {
+            margin-right: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+            font-size: 9px;
+            /* margin: auto; */
+            color: grey;
+            text-decoration: none;
+        }
+
+        #LETTER>div>a:hover {
+            text-decoration: underline;
+        }
+
+        #input {
+            width: 19%;
+            border: transparent;
+            border-bottom: 1px solid black;
+        }
+
+        #input:placeholder-shown {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            position: absolute;
+        }
+
+        /* #input:hover{
+    text-overflow:inherit;
+} */
+        #LETTER>p {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+            font-size: 16px;
+        }
+
+        #option {
+            width: 75%;
+            margin: 280px auto;
+
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            grid-template-rows: repeat(8, 50px);
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-stretch: extra-condensed;
+            gap: 90px;
+
+        }
+
+        #option>div>ul>li {
+            width: 900px;
+
+
+        }
+
+        #second {
+            width: 75%;
+            margin: -400px auto 90px;
+            display: flex;
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-stretch: extra-condensed;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            /* font-size: 13px; */
+        }
+
+        #nav {
+            display: flex;
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+            justify-content: space-between;
+            background-color: transparent;
+            position: fixed;
+            top: 0px;
+        }
+
+        #menu {
+            display: grid;
+            width: 1.6%;
+            height: 20%;
+            margin-top: 0.7%;
+            align-content: space-around;
+            margin-left: 2%;
+            background-color: transparent;
+        }
+
+        #menu>div {
+            height: 1px;
+            background-color: black;
+            transition: 0.4s;
+        }
+
+        #one {
+            width: 90%;
+        }
+
+        #two {
+            width: 60%;
+        }
+
+        #three {
+            width: 70%;
+        }
+
+        #menu:hover div {
+            width: 90%;
+        }
+
+        #logo {
+            width: 16%;
+        }
+
+        #logo>a>img {
+            width: 100%;
+        }
+
+        #gap {
+            width: 40%;
+            background-color: transparent;
+        }
+
+        #trend-home a {
+            text-decoration: none;
+            font-weight: none;
+            color: black;
+        }
+
+        /* #cart {
+            display: flex;
+            width: 5%;
+            height: 35%;
+            background-color: transparent;
+            margin-right: 2%;
+        } */
+
+        #search {
+            margin-top: 0.7%;
+        }
+
+        #loghelp {
+            display: flex;
+            width: 10%;
+            background-color: transparent;
+            justify-content: space-between;
+            margin-top: 0.7%;
+        }
+
+        /* #cart>img {
+            width: 45%;
+            height: 100%;
+            background-color: transparent;
+        } */
+
+
+        #second>p:nth-child(1) {
+            margin-right: 850px;
+        }
+
+        #second>p:nth-child(2) {
+            margin-right: 20px;
+        }
+
+        #second>p:nth-child(3) {
+            color: #e8ddd6;
+        }
+
+        ul {
+            list-style: none;
+            line-height: 8px;
+            font-size: 9px;
+        }
+
+        li {
+            margin-left: 0px;
+        }
+
+        li:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        #end {
+            width: 75%;
+            margin: auto;
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-stretch: extra-condensed;
+            padding-bottom: 80px;
+        }
+
+        h3 {
+            width: 900px;
+
+        }
+
+        /* Search */
+        .display-search-item {
+        width: 100%;
+        height: 60%;
+        margin-top: 30px;
+        background-color: transparent;
+        overflow-y: scroll;
+      }
+      .display-search-item a{
+        text-decoration: none;
+      }
+  
+      .display-search-item::-webkit-scrollbar {
+        width: 2px;
+      }
+  
+      .display-search-item::-webkit-scrollbar-thumb {
+        background-color: black;
+      }
+  
+      .item {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 20px;
+        width: 50%;
+        margin-bottom: 25px;
+        cursor: pointer;
+      }
+      .item a{
+        display: flex;
+        width: 100%;
+        gap: 20px;
+      }
+      .item img{
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        object-position: center;
+      }
+  
+      .item-details {
+        width: 100%;
+        display: flex;
+        font-size: 14px;
+        font-weight: 600;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+  
+      .item-details .product-details .desc {
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.8);
+        margin-top: 4px;
+      }
+      .cart-item .left{
+      width: 180px !important;
+      height: 120px !important;
+
+      }
+    </style>
+
+</head>
+
+<body id="trend-home">
+    <div class="nav container">
+        <div class="left">
+            <a href="index.html"> <img src="./assets/img/logo-black.svg" /></a>
+        </div>
+        <div class="right ">
+            <div>
+                <a class="search-btn search-box Click-here" id="search-btn">SEARCH</a>
+            </div>
+            <div><a href="about/index.html">About</a></div>
+            <div class="collection-div" onmouseenter="showDropDown()" onmouseleave="hideDropDown()"><a style="
+                margin-top: 5px;
+            ">Collections</a>
+                <div class="dropdown" id="dropdown">
+                  <!-- <li><a href="./trend.html">Category 1</a></li>
+                  <li><a href="./trend.html">Category 2</a></li>
+                  <li><a href="./trend.html">Category 3</a></li> -->
+                </div>
+              </div>
+            <div id="login"><a href="./login.html" id="login-web" name="login-web">Log in</a></div>
+            <div><a id="cart-btn" style="cursor: pointer;">Cart</a></div>
+
+        </div>
+    </div>
+    <div class="custom-model-main" id="custom-model-main">
+        <div class="custom-model-inner">
+            <div class="close-btn">×</div>
+            <div class="custom-model-wrap">
+                <div class="pop-up-content-wrap">
+                    <header class="header">
+                        <div class="header-left">
+                            <button class="menu-btn" aria-label="Open menu">
+                                <svg id="close-btn" xmlns="http://www.w3.org/2000/svg" height="1em"
+                                    viewBox="0 0 384 512">
+                                    <style>
+                                        svg {
+                                            fill: #000000;
+                                        }
+                                    </style>
+                                    <path
+                                        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                                </svg>
+                            </button>
+
+                            <div class="logo">
+                                <a>
+                                    <img src="./Images/logo.svg" alt="" />
+                                </a>
+                            </div>
+                        </div>
+                         <div class="header-right">
+                            <span class="top-menus">
+                                <a class="menu" id="login-header-right" name="login-header-right">LOG IN</a>
+                                <a class="menu">HELP </a>
+                                <a class="menu">
+                                    <span class="header-cart">
+                                        <svg class="layout-header-links__cart-icon" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M9 5.001V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.001h5v7h-1v-6H5v13.9h10v1H4V5h5zM10 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1.001h-4V4z">
+                                            </path>
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M22.8 23.4v-9h-5.4v9l2.695-2.827L22.8 23.4zm-4.6-1.998l1.894-1.987L22 21.407V15.2h-3.8v6.202z">
+                                            </path>
+                                        </svg>
+                                        <span class="items-count">0</span>
+                                    </span></a>
+                            </span>
+                        </div>
+                    </header>
+
+                    
+                </div>
+                <!-- <div class="header-right">
+                  <span class="top-menus">
+                    <a class="menu" id="login-header-right" name="login-header-right">LOG IN</a>
+                    <a class="menu">HELP </a>
+                    <a class="menu">
+                      <span class="header-cart">
+                        <svg class="layout-header-links__cart-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M9 5.001V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.001h5v7h-1v-6H5v13.9h10v1H4V5h5zM10 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1.001h-4V4z">
+                          </path>
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M22.8 23.4v-9h-5.4v9l2.695-2.827L22.8 23.4zm-4.6-1.998l1.894-1.987L22 21.407V15.2h-3.8v6.202z">
+                          </path>
+                        </svg>
+                        <span class="items-count">0</span>
+                      </span></a>
+                  </span>
+                </div> -->
+              </header>
+    
+              <form class="formtop_space">
+                <div class="search_form">
+                  <input type="text" name="search" placeholder="Search Products" class="search_field" id="search-field" />
+    
+                  <div class="display-search-item" id="display-search-item">
+                    <!-- <div class="item">
+                      <img src="https://placehold.co/50x70.png" alt="">
+                      <div class="item-details">
+                        <div class="product-details">
+                          <p>Product Title</p>
+                          <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, blanditiis.
+                          </p>
+                        </div>
+                        <p>&#8377;2,000</p>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img src="https://placehold.co/50x70.png" alt="">
+                      <div class="item-details">
+                        <div class="product-details">
+                          <p>Product Title</p>
+                          <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, blanditiis.
+                          </p>
+                        </div>
+                        <p>&#8377;2,000</p>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img src="https://placehold.co/50x70.png" alt="">
+                      <div class="item-details">
+                        <div class="product-details">
+                          <p>Product Title</p>
+                          <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, blanditiis.
+                          </p>
+                        </div>
+                        <p>&#8377;2,000</p>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img src="https://placehold.co/50x70.png" alt="">
+                      <div class="item-details">
+                        <div class="product-details">
+                          <p>Product Title</p>
+                          <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, blanditiis.
+                          </p>
+                        </div>
+                        <p>&#8377;2,000</p>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img src="https://placehold.co/50x70.png" alt="">
+                      <div class="item-details">
+                        <div class="product-details">
+                          <p>Product Title</p>
+                          <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, blanditiis.
+                          </p>
+                        </div>
+                        <p>&#8377;2,000</p>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img src="https://placehold.co/50x70.png" alt="">
+                      <div class="item-details">
+                        <div class="product-details">
+                          <p>Product Title</p>
+                          <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, blanditiis.
+                          </p>
+                        </div>
+                        <p>&#8377;2,000</p>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <img src="https://placehold.co/50x70.png" alt="">
+                      <div class="item-details">
+                        <div class="product-details">
+                          <p>Product Title</p>
+                          <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, blanditiis.
+                          </p>
+                        </div>
+                        <p>&#8377;2,000</p>
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+
+    <a class="menu__icon mobile" id="menu_icon"><span></span></a>
+    <ul class="menu mobile" id="mobile">
+        <li>
+            <a href="index.html" class="menu__item"><img src="assets/img/logo-black.png" /></a>
+        </li>
+        <div>
+            <li><a class="Click-here menu__item" id="mobile-search">SEARCH</a></li>
+            <br />
+            <li><a href="about/index.html" class="menu__item">About</a></li>
+            <li>
+                <a class="menu__item" id="mobile-collection-btn">Collections</a>
+              </li>
+              <li class="mobile-collection" id="mobile-collection">
+                <!-- <a href="#"><span>Link</span></a>
+                <a href="#"><span>Link</span></a>
+                <a href="#"><span>Link</span></a>
+                <a href="#"><span>Link</span></a>
+                <a href="#"><span>Link</span></a> -->
+              </li>
+            <li><a href="./login.html" class="menu__item" id="login-mobile" name="login-mobile">Log in</a></li>
+            <li><a href="./contact/index.html" class="menu__item">Help</a></li>
+            <li><a href="#" class="menu__item" id="mobile-cart-btn">Cart</a></li>
+        </div>
+        <li>
+            <a href="#" class="menu__item moon-menu">
+                <img src="assets/img/moon-face-black.png" /></a>
+        </li>
+    </ul>
+
+    <div id="noise">
+
+    </div>
+    <p class="best-seller-head">BestSellers</p>
+    <div id="firstSec">
+        <!-- data append to here -->
+    </div>
+
+    <h3 id="h3">TAILORED SUITS FOR MEN</h3>
+    <p id="p" class="para">AN EXQUISITE CUT AND IMMACULATE EXECUTION CAN BE RELIED UPON WITH OUR COLLECTION OF TAILORED <a
+            href="">SUITS FOR MEN</a>. FROM <a href="">TUXEDO</a> ENSEMBLES TO <a href="">THREE-PIECE STYLES,</a> THIS
+        SEASON’S REPERTOIRE RISES TO EVERY OCCASION, WEDDINGS, OFFICIAL ENGAGEMENTS AND EVENING EVENTS INCLUDED.</p>
+
+    <div id="div">
+        <img src="https://static.zara.net/photos///2022/I/M/3/p/0000/000/057/2/w/1247/0000000057_9_2_1.jpg?ts=1654156826966"
+            alt="">
+    </div>
+    <div id="img2">
+
+    </div>
+    <div id="secondSec">
+        <!-- data append to here  -->
+    </div>
+    <!-- <h2>YOU MIGHT BE INTERESTED IN</h2> -->
+
+    </section>
+
+    <!-- cart section -->
+    <div class="cart" id="cart">
+        <div class="cart-container">
+            <div class="close-cart">
+                <svg id="cart-close" xmlns="http://www.w3.org/2000/svg" height="1em"
+                    viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                </svg>
+                <h2>Cart</h2>
+            </div>
+            <div class="cart-items">
+
+                <div class="cart-item">
+                    <div class="left">
+                        <img src="./assets/img/c1.jpg" alt="">
+                    </div>
+                    <div class="center">
+                        <div class="product-title">
+                            <p class="product-heading">Product title</p>
+                            <p>&#8377; 1,XXX</p>
+                        </div>
+                        <p class="product-color">Product Color &#47; <span>Size</span></p>
+                        <div class="quantity">
+                            <p>Quantity</p>
+                            <div class="quantity-count">
+                                <span id="minus">-</span>
+                                <span id="counter">0</span>
+                                <span id="plus">+</span>
+                            </div>
+                        </div>
+                        <div class="delete-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path
+                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-item">
+                    <div class="left">
+                        <img src="./assets/img/c10.jpg" alt="">
+                    </div>
+                    <div class="center">
+                        <div class="product-title">
+                            <p class="product-heading">Product title</p>
+                            <p>&#8377; 1,XXX</p>
+                        </div>
+                        <p class="product-color">Product Color &#47; <span>Size</span></p>
+                        <div class="quantity">
+                            <p>Quantity</p>
+                            <div class="quantity-count">
+                                <span id="minus">-</span>
+                                <span id="counter">0</span>
+                                <span id="plus">+</span>
+                            </div>
+                        </div>
+                        <div class="delete-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path
+                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-item">
+                    <div class="left">
+                        <img src="https://placehold.co/50x80" alt="">
+                    </div>
+                    <div class="center">
+                        <div class="product-title">
+                            <p class="product-heading">Product title</p>
+                            <p>&#8377; 1,XXX</p>
+                        </div>
+                        <p class="product-color">Product Color &#47; <span>Size</span></p>
+                        <div class="quantity">
+                            <p>Quantity</p>
+                            <div class="quantity-count">
+                                <span id="minus">-</span>
+                                <span id="counter">0</span>
+                                <span id="plus">+</span>
+                            </div>
+                        </div>
+                        <div class="delete-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path
+                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-item">
+                    <div class="left">
+                        <img src="https://placehold.co/50x80" alt="">
+                    </div>
+                    <div class="center">
+                        <div class="product-title">
+                            <p class="product-heading">Product title</p>
+                            <p>&#8377; 1,XXX</p>
+                        </div>
+                        <p class="product-color">Product Color &#47; <span>Size</span></p>
+                        <div class="quantity">
+                            <p>Quantity</p>
+                            <div class="quantity-count">
+                                <span id="minus">-</span>
+                                <span>0</span>
+                                <span id="plus">+</span>
+                            </div>
+                        </div>
+                        <div class="delete-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path
+                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Items End -->
+            </div>
+            <div class="total-strip">
+                <div class="border"></div>
+                <div class="subtotal">
+                    <p>Subtotal</p>
+                    <p>&#8377; X,XXX</p>
+                </div>
+                <button id="checkoutBtn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+            </div>
+
+        </div>
+        <!-- container end-->
+    </div>
+
+    <footer class=" footer">
+        <div class="newsletter">
+            <div class="footer-title">
+                JOIN OUR NEWSLETTER
+            </div>
+            <form>
+                <input type="text" class="form-input">
+                <label>Enter your email address
+                    here</label>
+            </form>
+        </div>
+
+        <ul class="social-links">
+            <li><a href="#" target="_blank">INSTAGRAM</a> </li>
+            <li><a href="#" target="_blank">FACEBOOK</a>
+            </li>
+            <li><a href="#" target="_blank">TWITTER</a>
+            </li>
+            <li><a href="#" target="_blank">PINTEREST</a></li>
+            <li><a href="#" target="_blank">YOUTUBE</a>
+            </li>
+            <li><a href="#" target="_blank">SPOTIFY</a>
+            </li>
+        </ul>
+
+        <div class="fw-row">
+            <div class="fw-col">
+                <div class="fw-title"> HELP </div>
+                <ul class="fw-item-list">
+                    <li>
+                        <a href="#">SHOP AT twentyOne.COM</a>
+                    </li>
+                    <li>
+                        <a href="#"> PRODUCT </a>
+                    </li>
+                    <li>
+                        <a href="#"> GIFT CARD </a>
+                    </li>
+                    <li>
+                        <a href="#"> PAYMENT </a>
+                    </li>
+                    <li>
+                        <a href="#"> SHIPPING </a>
+                    </li>
+                    <li>
+                        <a href="#"> EXCHANGES AND
+                            RETURNS </a>
+                    </li>
+                    <li>
+                        <a href="#"> SHOPS AND COMPANY
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"> CLOTHES COLLECTION
+                            PROGRAMME </a>
+                    </li>
+                    <li>
+                        <a href="#"> MY ACCOUNT </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="fw-col">
+                <div class="fw-title"> FOLLOW US </div>
+                <ul class="fw-item-list">
+                    <li>
+                        <a href="#"> NEWSLETTER </a>
+                    </li>
+                    <li>
+                        <a href="#"> INSTAGRAM </a>
+                    </li>
+                    <li>
+                        <a href="#"> FACEBOOK </a>
+                    </li>
+                    <li>
+                        <a href="#"> TWITTER </a>
+                    </li>
+                    <li>
+                        <a href="#"> PINTEREST</a>
+                    </li>
+                    <li>
+                        <a href="#"> YOUTUBE</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="fw-col">
+                <div class="fw-title"> COMPANY </div>
+                <ul class="fw-item-list">
+                    <li>
+                        <a href="#"> ABOUT US </a>
+                    </li>
+                    <li>
+                        <a href="#"> JOIN LIFE </a>
+                    </li>
+                    <li>
+                        <a href="#"> OFFICES </a>
+                    </li>
+                    <li>
+                        <a href="#"> STORES </a>
+                    </li>
+                    <li>
+                        <a href="#"> WORK WITH US </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="fw-col">
+                <div class="fw-title"> POLICIES </div>
+                <ul class="fw-item-list">
+                    <li>
+                        <a href="#"> PRIVACY POLICY </a>
+                    </li>
+                    <li>
+                        <a href="#"> PURCHASE CONDITIONS
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"> GIFT CARD
+                            CONDITIONS </a>
+                    </li>
+                    <li>
+                        <a href="#"> COOKIES SETTINGS
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="origin-wrap mo_footer">
+            <div class="origin-lang">
+                <div class="ori-lang"> ENGLISH </div>
+            </div>
+            <div class="f-breadcrumbs">
+                <ul class="bred-links">
+                    <li>
+                        <a href="index.html"> TwentyOne </a>
+                        <span class="divider">/</span>
+                    </li>
+                    <li>
+                        <a href="#"> WOMAN </a>
+                        <span class="divider">/</span>
+                    </li>
+                    <li>
+                        <a href="#"> PINSTRIPED BLAZER </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="origin">
+                <div class="ori-cun"> Cookies settings </div>
+            </div>
+
+        </div>
+
+        <div class="f-breadcrumbs">
+            <ul class="bred-links">
+                <li>
+                    <a href="index.html"> TwentyOne </a>
+                    <span class="divider">/</span>
+                </li>
+                <li>
+                    <a href="#"> WOMAN </a>
+                    <span class="divider">/</span>
+                </li>
+                <li>
+                    <a href="#"> PINSTRIPED BLAZER </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="origin-wrap">
+            <div class="origin">
+                <span class="ori-cun"> INDIA </span>
+            </div>
+            <div class="origin-lang">
+                <span class="ori-lang"> ENGLISH </span>
+                <span class="copyright">
+                    © ALL RIGHTS RESERVED </span>
+            </div>
+        </div>
+
+
+        <div class="legal-info">
+            <p> NAME AND ADDRESS OF THE MANUFACTURER:
+            </p>
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi laborum officia voluptatem. </p>
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+
+    </footer>
+    <script>
+        // $("#nav-search").on('click', function () {
+        //     $("#custom-model-main").addClass('model-open');
+        // });
+        // $(".close-btn, .bg-overlay").click(function () {
+        //     $("#custom-model-main").removeClass('model-open');
+        // console.log("hello");
+        // });
+        let model = document.getElementById('custom-model-main');
+        document.getElementById('search-btn').addEventListener('click', () => {
+            model.classList.add('model-open');
+            // console.log('hello');
+        });
+        document.getElementById('close-btn').addEventListener('click', () => {
+            model.classList.remove('model-open');
+        });
+    </script>
+    <script>
+        // $("#nav-search").on('click', function () {
+        //     $("#custom-model-main").addClass('model-open');
+        // });
+        // $(".close-btn, .bg-overlay").click(function () {
+        //     $("#custom-model-main").removeClass('model-open');
+        // console.log("hello");
+        // });
+        document.getElementById('mobile-search').addEventListener('click', () => {
+            model.classList.add('model-open');
+            // console.log('hello');
+        });
+        document.getElementById('close-btn').addEventListener('click', () => {
+            model.classList.remove('model-open');
+        });
+    </script>
+    <script>
+        document.getElementById('menu_icon').addEventListener('click', function () {
+            document.getElementById('trend-home').classList.toggle('menu_shown');
+        })
+    </script>
+
+
+    <!-- <script>
+        // $(document).ready(function () {
+        //     $('.menu__icon').click(function () {
+        //         $('#trend-home').toggleClass('menu_shown');
+        //     });
+        // });
+        document.getElementById('menu-icon').addEventListener('click', () => {
+
+        })
+    </script> -->
+    <!-- cart -->
+    <script>
+        const cart = document.getElementById('cart');
+        const cartBtn = document.getElementById('cart-btn');
+        cartBtn.addEventListener('click', () => {
+            cart.style.display = "block";
+        });
+        const cartClose = document.getElementById('cart-close');
+        cartClose.addEventListener('click', () => {
+            cart.style.display = "none";
+        })
+    </script>
+    <script>
+        let minus = document.getElementById('minus');
+        let plus = document.getElementById('plus');
+        let counter = document.getElementById('counter');
+        let count = 0;
+
+        plus.addEventListener('click', () => {
+            count = count + 1;
+            counter.innerText = count;
+        });
+
+        minus.addEventListener('click', () => {
+            if (count > 0) {
+
+                count = count - 1;
+                counter.innerText = count;
+            }
+        });
+
+
+    </script>
+    <script>
+        const loginWeb = document.getElementById("login-web")
+        const loginHeaderRight = document.getElementById("login-header-right")
+        const loginMobile = document.getElementById("login-mobile")
+        const user = JSON.parse(localStorage.getItem("user"))
+        if (user) {
+            loginWeb.innerHTML = user.name;
+            loginWeb.href = "./profile.html"
+            loginHeaderRight.innerHTML = user.name;
+            loginHeaderRight.href = "./profile.html"
+            loginMobile.innerHTML = user.name;
+            loginMobile.href = "./profile.html"
+        }
+    </script>
+    <script>
+        const mobileCartBtn = document.getElementById('mobile-cart-btn');
+        mobileCartBtn.addEventListener('click', () => {
+          cart.style.display = "block";
+        });
+      </script>
+
+    <script src="trend.js"></script>
+    <script src="./js/search.js"></script>
+     <!-- Collection DropDown -->
+  <script>
+    const dropdown = document.getElementById('dropdown');
+    function showDropDown() {
+      dropdown.classList.add('mouseover');
+    }
+    function hideDropDown() {
+      dropdown.classList.remove('mouseover');
+    }
+    fetch("http://localhost:5055/api/category/all")
+      .then((res) => res.json())
+      .then((data) => {
+        
+        if (data.length > 0) {
+          
+          // data.map(data => {
+          //   dropdown.innerHTML = `
+          //             <li><a href=./trend.html?id=${data._id}>${data.name.en}</a></li>
+          //             `
+          // })
+          data.forEach((data) => {
+            const listItem = `
+            <li><a href=./trend.html?id=${data._id}>${data.name.en}</a></li>
+            `
+            dropdown.insertAdjacentHTML("beforeend", listItem)
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  </script>
+  <script>
+    const collectionBtn = document.getElementById('mobile-collection-btn');
+    const mobileCollection = document.getElementById('mobile-collection')
+    collectionBtn.addEventListener('click', () => {
+      mobileCollection.classList.toggle('collection-active');
+
+    })
+
+    fetch("http://localhost:5055/api/category/all")
+      .then((res) => res.json())
+      .then((data) => {
+        
+        if (data.length > 0) {
+          
+          data.forEach((data) => {
+            const listItem = `
+            <a href=./trend.html?id=${data._id}><span>${data.name.en}</span></a>
+            `
+            mobileCollection.insertAdjacentHTML("beforeend", listItem)
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  </script>
+  <script>
+    function proceedToCheckout() {
+      window.location.href = "./checkout.html";
+    }
+  </script>
+</body>
+
+</html>

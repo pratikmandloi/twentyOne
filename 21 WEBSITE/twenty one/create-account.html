@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LOG IN / CREATE ACCOUNT - Twenty One - Official Website</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Karla:wght@200;300&family=Mulish:wght@200;400&family=PT+Sans&family=Pacifico&family=Shizuru&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="./styles/login.css" />
+  <!-- <link rel="stylesheet" href="./styles/header.css" />
+    <link rel="stylesheet" href="./styles/footer.css" /> -->
+  <link rel="stylesheet" href="./css/custom.css" />
+
+  <script src="./scripts/loginValidation.js"></script>
+  <style>
+    #login-body {
+      overflow-x: hidden;
+    }
+
+    #login-container {
+      width: 100%;
+      height: 100%;
+      padding: 30px 30px;
+      margin-bottom: 0px;
+    }
+
+    .sign-in {
+      width: 100%;
+      height: auto;
+      min-height: 100vh;
+    }
+
+    .sign-in .heading {
+      font-size: 13px;
+      margin-bottom: 50px;
+    }
+
+    input {
+      border: none;
+      outline: none;
+    }
+
+    ::-webkit-input-placeholder {
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.2);
+    }
+
+    :hover::-webkit-input-placeholder {
+      color: rgba(0, 0, 0, 1);
+      transition: 0.1s ease-in-out all;
+    }
+
+    .input-fields {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      width: 40%;
+    }
+
+    .input {
+      display: flex;
+      font-size: 25px;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      padding: 10px 10px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .input svg {
+      fill: rgba(0, 0, 0, 0.2);
+      width: 20px;
+      height: 20px;
+    }
+
+    .active {
+      display: block;
+    }
+
+    button {
+      width: 250px;
+      height: 50px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      background-color: black;
+      color: white;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 30px;
+      cursor: pointer;
+    }
+
+    .forgot-password {
+      width: 40%;
+      margin-top: 20px;
+    }
+
+    .forgot-password p {
+      font-size: 11px;
+      text-transform: uppercase;
+
+    }
+
+    .forgot-password p span {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .forgot-password .reset-password {
+      width: 100%;
+      min-height: 200px;
+      overflow: hidden;
+      /* background-color: red; */
+      padding: 20px 0px;
+      display: none;
+      opacity: 1;
+      transition: 0.4s all ease;
+    }
+
+    .reset-password p {
+      font-weight: 600;
+      font-size: 12px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      /* padding: 0px 10px; */
+    }
+
+    .reset-password p span {
+      font-size: 11px !important;
+      color: rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+    }
+
+    .text {
+      margin-top: 40px;
+      padding: 0 !important;
+      margin-bottom: 20px;
+    }
+
+    .reset-password input {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      width: 100%;
+      padding: 10px 0px;
+    }
+
+    .sign-up {
+      width: 40%;
+    }
+
+    .sign-up p {
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-top: 10px;
+    }
+
+    .sign-up p span {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .footer {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+      width: 100vw;
+      padding: 30px;
+      box-sizing: border-box;
+      position: absolute;
+      bottom: -120px;
+      left: 0;
+    }
+
+    .footer a {
+      text-transform: uppercase;
+      color: #000;
+      font-size: 0.6em;
+      letter-spacing: 0.08em;
+      margin: 0 25px;
+      border-bottom: solid 1px rgba(0, 0, 0, 0) !important;
+      transition: 0.5s;
+      padding-bottom: 3px;
+    }
+
+    .footer a:hover {
+      border-bottom: solid 1px #fff;
+      transition: 0.5s;
+    }
+
+    .moon-face-footer {
+      width: 120px;
+    }
+  </style>
+
+</head>
+
+<body id="login-body">
+  <div class="nav container">
+    <div class="left">
+      <a href="index.html"> <img src="assets/img/logo-black.svg" /></a>
+    </div>
+    <div class="right">
+      <div>
+        <a class="search-btn search-box Click-here" id="search-btn">SEARCH</a>
+      </div>
+      <div><a href="about/index.html">About</a></div>
+      <div><a href="collections/index.html">Collections</a></div>
+      <div><a href="./login.html">Log in</a></div>
+      <div><a href="contact/index.html">Cart</a></div>
+    </div>
+  </div>
+  <div class="custom-model-main" id="custom-model-main">
+    <div class="custom-model-inner">
+      <div class="close-btn">×</div>
+      <div class="custom-model-wrap">
+        <div class="pop-up-content-wrap">
+          <header class="header">
+            <div class="header-left">
+              <button class="menu-btn" aria-label="Open menu">
+                <svg id="close-btn" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512">
+                  <style>
+                    svg {
+                      fill: #000000;
+                    }
+                  </style>
+                  <path
+                    d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                </svg>
+              </button>
+
+              <div class="logo">
+                <a>
+                  <img src="./Images/logo.svg" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="header-right">
+              <span class="top-menus">
+                <a class="menu">LOG IN</a>
+                <a class="menu">HELP </a>
+                <a class="menu">
+                  <span class="cart">
+                    <svg class="layout-header-links__cart-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M9 5.001V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.001h5v7h-1v-6H5v13.9h10v1H4V5h5zM10 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1.001h-4V4z">
+                      </path>
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M22.8 23.4v-9h-5.4v9l2.695-2.827L22.8 23.4zm-4.6-1.998l1.894-1.987L22 21.407V15.2h-3.8v6.202z">
+                      </path>
+                    </svg>
+                    <span class="items-count">0</span>
+                  </span></a>
+              </span>
+            </div>
+          </header>
+
+          <form class="formtop_space">
+            <div class="search_form">
+              <input type="search" name="search" placeholder="ENTER SEARCH TERMS" class="search_field" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="menu__icon mobile" id="menu_icon"><span></span></a>
+  <ul class="menu mobile" id="mobile">
+    <li>
+      <a href="index.html" class="menu__item"><img src="assets/img/logo-black.png" /></a>
+    </li>
+    <div>
+      <li><a class="Click-here menu__item">SEARCH</a></li>
+      <br />
+      <li><a href="about/index.html" class="menu__item">About</a></li>
+      <li>
+        <a href="collections/index.html" class="menu__item">Collections</a>
+      </li>
+      <li><a href="./login.html" class="menu__item">Log in</a></li>
+      <li><a href="./contact/index.html" class="menu__item">Help</a></li>
+      <li><a href="#" class="menu__item">Cart</a></li>
+    </div>
+    <li>
+      <a href="#" class="menu__item moon-menu">
+        <img src="assets/img/moon-face-black.png" /></a>
+    </li>
+  </ul>
+
+  <div id="login-container">
+    <div class="sign-in">
+      <form name="form" id="form">
+        <h3 class="heading">CREATE ACCOUNT</h3>
+        <div class="input-fields">
+          <div class="input-name input">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+              viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path
+                d="M256 0a56 56 0 1 1 0 112A56 56 0 1 1 256 0zM134.1 143.8c3.3-13 15-23.8 30.2-23.8c12.3 0 22.6 7.2 27.7 17c12 23.2 36.2 39 64 39s52-15.8 64-39c5.1-9.8 15.4-17 27.7-17c15.3 0 27 10.8 30.2 23.8c7 27.8 32.2 48.3 62.1 48.3c10.8 0 21-2.7 29.8-7.4c8.4-4.4 18.9-4.5 27.6 .9c13 8 17.1 25 9.2 38L399.7 400H384 343.6 168.4 128 112.3L5.4 223.6c-7.9-13-3.8-30 9.2-38c8.7-5.3 19.2-5.3 27.6-.9c8.9 4.7 19 7.4 29.8 7.4c29.9 0 55.1-20.5 62.1-48.3zM256 224l0 0 0 0h0zM112 432H400l41.4 41.4c4.2 4.2 6.6 10 6.6 16c0 12.5-10.1 22.6-22.6 22.6H86.6C74.1 512 64 501.9 64 489.4c0-6 2.4-11.8 6.6-16L112 432z" />
+            </svg>
+            <input type="text" name="name" id="name" placeholder="Enter Your Name">
+          </div>
+          <div class="input-email input">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+              viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path
+                d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
+            </svg>
+            <input type="email" name="email" id="email" placeholder="Email">
+          </div>
+          <div class="input-phone input">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+              viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path
+                d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" />
+            </svg>
+            <input type="tel" name="number" id="number" placeholder="Enter Phone Number">
+          </div>
+          <div class="input-password input">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+              viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path
+                d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z" />
+            </svg>
+            <input type="password" name="password" id="password" placeholder="Password">
+          </div>
+          <div class="input-confirm-password input">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+              viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path
+                d="M342.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 178.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l80 80c12.5 12.5 32.8 12.5 45.3 0l160-160zm96 128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 402.7 54.6 297.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l256-256z" />
+            </svg>
+            <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password">
+          </div>
+        </div>
+        <div id="err"></div>
+        <div class="sign-in-btn">
+          <button type="submit" id="submit" name="submit">Create Account</button>
+        </div>
+      </form>
+      <div class="sign-up">
+        <p>have an account? <span id="reset-btn"><a href="./login.html"> sign-in</a></span></p>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="footer container">
+    <div>
+      <a href="https://www.instagram.com/nogreyarea_official/" target="_blank">Instagram</a>
+    </div>
+
+    <div>
+      <a href="../terms/index.html">Terms & Conditions</a>
+      <a href="../privacy.html">Privacy Policy</a>
+    </div>
+
+    <div>
+      <img src="./assets/img/moon-face-black.png" class="moon-face-footer">
+    </div>
+  </div>
+  <script>
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      let reset = document.getElementById('reset-password');
+      reset.style.display = "block"
+    });
+
+    document.getElementById('close-container').addEventListener('click', () => {
+      document.getElementById('reset-password').style.display = "none"
+
+    })
+  </script>
+
+</body>
+
+</html>
+<script src="./scripts/login.js"></script>
+<script>
+  document.querySelector("#form").addEventListener("submit", handleSubBtn);
+  function handleSubBtn(event) {
+    event.preventDefault();
+    let data = {
+      name: document.querySelector("#name").value,
+      email: document.querySelector("#email").value,
+      phone: document.querySelector("#number").value,
+      password: document.querySelector("#password").value,
+      confirmPassword: document.querySelector("#confirm-password").value,
+    };
+    const err = document.querySelector("#err");
+    if (data.password === data.confirmPassword) {
+      fetch("http://localhost:5055/api/customer/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          return data;
+        })
+        .then((data) => {
+          if (data.token) {
+            window.location.href = "login.html";
+          }
+          err.innerHTML = data.message;
+          err.style.color = "red";
+        })
+        .catch((err) => {
+          err.innerHTML = "server err..";
+          err.style.color = "red";
+        });
+    } else {
+      err.innerHTML = "Password Mismatch..";
+      err.style.color = "red";
+    }
+  }
+</script>
+<script>
+  document.getElementById("search-btn").addEventListener("click", () => {
+    document.getElementById("custom-model-main").classList.add("model-open");
+  });
+
+  document.getElementById("close-btn").addEventListener("click", () => {
+    document.getElementById("custom-model-main").classList.remove("model-open");
+  });
+</script>
+<script>
+  document.getElementById("menu_icon").addEventListener("click", () => {
+    let body = document.getElementById("login-body");
+    body.classList.toggle("menu_shown");
+  });
+</script>
+
+<script type="module">
+  import { header } from "./components/header.js";
+  import { footers } from "./components/footer.js";
+  let navbar_div = document.getElementById("header");
+  let footer_div = document.getElementById("footer");
+  footer_div.innerHTML = footers();
+  navbar_div.innerHTML = header();
+</script>

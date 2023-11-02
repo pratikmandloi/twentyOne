@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link href="assets/css/main44ed.css" type="text/css" rel="stylesheet"> -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/slick.css" />
+    <link rel="stylesheet" href="css/slick-theme.css" />
+    <link href="css/custom.css" rel="stylesheet" />
+    <!-- <link href="assets/css/main44ed.css" type="text/css" rel="stylesheet"> -->
+
+    <title>TwentyOne</title>
+    <style>
+      .display-search-item {
+        width: 100%;
+        height: 60%;
+        margin-top: 30px;
+        background-color: transparent;
+        overflow-y: scroll;
+      }
+      .display-search-item a {
+        text-decoration: none;
+      }
+
+      .display-search-item::-webkit-scrollbar {
+        width: 2px;
+      }
+
+      .display-search-item::-webkit-scrollbar-thumb {
+        background-color: black;
+      }
+
+      .item {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 20px;
+        width: 50%;
+        margin-bottom: 25px;
+        cursor: pointer;
+      }
+      .item a {
+        display: flex;
+        width: 100%;
+        gap: 20px;
+      }
+      .item img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .item-details {
+        width: 100%;
+        display: flex;
+        font-size: 14px;
+        font-weight: 600;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+
+      .item-details .product-details .desc {
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.8);
+        margin-top: 4px;
+      }
+    </style>
+  </head>
+
+  <body id="home">
+    <div class="nav container">
+      <div class="left">
+        <a href="index.html"> <img src="assets/img/logo-black.svg" /></a>
+      </div>
+      <div class="right">
+        <div><a class="search-btn Click-here">SEARCH</a></div>
+        <div><a href="about/index.html">About</a></div>
+        <div
+          class="collection-div"
+          onmouseenter="showDropDown()"
+          onmouseleave="hideDropDown()"
+        >
+          <a style="margin-top: 5px">Collections</a>
+          <div class="dropdown" id="dropdown">
+            <!-- <li><a href="./trend.html">Category 1</a></li>
+            <li><a href="./trend.html">Category 2</a></li>
+            <li><a href="./trend.html">Category 3</a></li> -->
+          </div>
+        </div>
+        <div>
+          <a href="./login.html" id="login-web" name="login-web">Log in</a>
+        </div>
+        <div><a id="cart-btn" style="cursor: pointer">Cart</a></div>
+      </div>
+    </div>
+    <div class="custom-model-main">
+      <div class="custom-model-inner">
+        <div class="close-btn">×</div>
+        <div class="custom-model-wrap">
+          <div class="pop-up-content-wrap">
+            <header class="header">
+              <div class="header-left">
+                <button class="menu-btn" aria-label="Open menu">
+                  <svg
+                    id="close-btn"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="1em"
+                    viewBox="0 0 384 512"
+                  >
+                    <style>
+                      svg {
+                        fill: #000000;
+                      }
+                    </style>
+                    <path
+                      d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                    />
+                  </svg>
+                </button>
+
+                <div class="logo">
+                  <a>
+                    <img src="./Images/logo.svg" alt="" />
+                  </a>
+                </div>
+              </div>
+              <div class="header-right">
+                <span class="top-menus">
+                  <a
+                    class="menu"
+                    id="login-header-right"
+                    name="login-header-right"
+                    >LOG IN</a
+                  >
+                  <a class="menu">HELP </a>
+                  <a class="menu">
+                    <span class="cart">
+                      <svg
+                        class="layout-header-links__cart-icon"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M9 5.001V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.001h5v7h-1v-6H5v13.9h10v1H4V5h5zM10 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1.001h-4V4z"
+                        ></path>
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M22.8 23.4v-9h-5.4v9l2.695-2.827L22.8 23.4zm-4.6-1.998l1.894-1.987L22 21.407V15.2h-3.8v6.202z"
+                        ></path>
+                      </svg>
+                      <span class="items-count">0</span>
+                    </span></a
+                  >
+                </span>
+              </div>
+            </header>
+
+            <form class="formtop_space">
+              <div class="search_form">
+                <input
+                  type="text"
+                  name="search"
+                  placeholder="Search Products"
+                  class="search_field"
+                  id="search-field"
+                />
+
+                <div class="display-search-item" id="display-search-item"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="menu__icon mobile" id="menu_icon"><span></span></a>
+    <ul class="menu mobile">
+      <li>
+        <a href="index.html" class="menu__item"
+          ><img src="assets/img/logo-black.png"
+        /></a>
+      </li>
+      <div>
+        <li><a class="Click-here menu__item">SEARCH</a></li>
+        <br />
+        <li><a href="about/index.html" class="menu__item">About</a></li>
+        <li>
+          <a class="menu__item" id="mobile-collection-btn">Collections</a>
+        </li>
+        <li class="mobile-collection" id="mobile-collection"></li>
+        <li>
+          <a
+            href="./login.html"
+            class="menu__item"
+            id="login-mobile"
+            name="login-mobile"
+            >Log in</a
+          >
+        </li>
+        <li><a href="./contact/index.html" class="menu__item">Help</a></li>
+        <li><a href="#" class="menu__item" id="mobile-cart-btn">Cart</a></li>
+      </div>
+      <li>
+        <a href="#" class="menu__item moon-menu">
+          <img src="assets/img/moon-face-black.png"
+        /></a>
+      </li>
+    </ul>
+
+    <!-- <div class="custom-model-main">
+        <div class="custom-model-inner">
+            <div class="close-btn">×</div>
+            <div class="custom-model-wrap">
+                <div class="pop-up-content-wrap">
+                    <header class="header">
+                        <div class="header-left">
+                            <button class="menu-btn" aria-label="Open menu"><svg width="24" height="24"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4 4h16v1H4V4zM20 19H4v-1h16v1z">
+                                    </path>
+                                    <path d="M4 11h16v1H4v-1z"></path>
+                                </svg></button>
+
+                            <div class="logo">
+                                <a>
+                                    <svg aria-label="ZARA India logo. Go to home page"
+                                        class="layout-logo__icon layout-header__logo-icon" viewBox="0 0 132 55"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M105.673.035l19.557 53.338 6.77.002v.383h-21.548v-.383h6.344l-6.431-17.54H97.311v.007l.07.204c.521 1.548.78 3.17.764 4.803v6.575c0 3.382 1.494 6.81 4.347 6.81 1.675 0 3.012-.59 4.604-2.046l.227.211C105.594 54.224 103.5 55 100.36 55c-2.37 0-4.398-.57-6.03-1.693l-.309-.222c-2.148-1.624-3.542-4.278-4.142-7.89l-.096-.583-.1-.882-.01-.152-3.599 9.792h5.107v.384H80.496v-.384h5.162l3.951-10.753v-.023a34.924 34.924 0 0 1-.075-1.906v-4.693c0-5.77-4.29-9.08-11.771-9.08H70.41v26.458h6.371v.383h-24.9v-.383h6.345l-6.431-17.54H33.948l-6.371 17.346.266-.044c8.366-1.442 12.213-7.827 12.265-14.55h.388v15.171H0L30.06 2.185H17.972C7.954 2.185 3.42 9.922 3.35 17.635h-.387V1.8h36.488l-.222.385L9.396 53.373h15.695c.39 0 .778-.019 1.169-.05.26-.018.522-.044.788-.077l.095-.01L46.703 0h.387l.013.035 15.369 41.916V2.185h-6.328v-.39h21.778c10.467 0 17.774 5.372 17.774 13.068 0 5.612-5.005 10.27-12.45 11.595l-1.367.174 1.377.14c4.515.517 8.1 1.906 10.641 4.127l.017.016L105.273 0h.386l.014.035zm-8.552 35.32l.038.094h13.061l-8.773-23.928-7.221 19.67.039.037.367.364a11.876 11.876 0 0 1 2.489 3.762zM70.415 26.53V2.185h5.611c7.496 0 11.454 4.414 11.454 12.76 0 8.877-2.272 11.585-9.717 11.585h-7.348zM42.882 11.521L34.09 35.45h17.565L42.882 11.52z">
+                                        </path>
+                                    </svg>
+
+                                </a>
+                            </div>
+                        </div>
+                        <div class="header-right">
+
+                            <span class="top-menus">
+                                <a class="menu">LOG IN</a>
+                                <a class="menu">HELP </a>
+                                <a class="menu">
+                                    <span class="cart">
+                                        <svg class="layout-header-links__cart-icon" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M9 5.001V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.001h5v7h-1v-6H5v13.9h10v1H4V5h5zM10 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1.001h-4V4z">
+                                            </path>
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M22.8 23.4v-9h-5.4v9l2.695-2.827L22.8 23.4zm-4.6-1.998l1.894-1.987L22 21.407V15.2h-3.8v6.202z">
+                                            </path>
+                                        </svg>
+                                        <span class="items-count">0</span>
+                                    </span></a>
+                            </span>
+                        </div>
+                    </header>
+
+                    <form class="formtop_space">
+                        <div class="search_form">
+                            <input type="search" name="search" placeholder="ENTER SEARCH TERMS" class="search_field">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div> -->
+
+    <section class="product product-new">
+      <div class="pro-des">
+        <div class="desc-heading">MATERIALS, CARE AND ORIGIN</div>
+        <div class="pro-ori">ORIGIN</div>
+        <!-- <p>
+                We work with our suppliers, workers, unions and international organizations to develop a supply chain in
+                which human rights are respected and promoted, contributing to the United Nations Sustainable
+                Development Goals.</p>
+
+            <p> Thanks to the collaboration with our suppliers, we work to know the facilities and processes used to
+                manufacture our garments in order to know the traceability of our products.
+            </p> -->
+        <p>
+          We work with our suppliers, workers, unions and international
+          organizations to develop a supply chain in which human rights are
+          respected and promoted, contributing to the United Nations Sustainable
+          Development Goals.
+          <span
+            >Thanks to the collaboration with our suppliers, we work to know the
+            facilities and processes used to manufacture our garments in order
+            to know the traceability of our products.</span
+          >
+          <span id="dots">...</span
+          ><span id="more" style="display: none">
+            <br />
+            <span class="pro-ori">CARE</span><br />
+            <span>Caring for your clothes is caring for the environment.</span>
+          </span>
+        </p>
+        <a href="#" class="view-more" onclick="myFunction()" id="myBtn"
+          >View more</a
+        >
+      </div>
+      <div class="pro-image">
+        <div class="image-slider">
+          <div>
+            <img src="Images/img-1.jpg" id="img-Product" alt="image" />
+          </div>
+        </div>
+      </div>
+
+      <div class="pro-detail">
+        <div class="detail-label">
+          <span id="title-name">PINSTRIPED BLAZER</span>
+          <button class="btn-detl">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M18.6 21.6V2.4H5.4v19.2l6.6-6.75 6.6 6.75zm-12-2.944l5.4-5.522 5.4 5.522V3.6H6.6v15.056z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <p id="description">
+          Long collared blazer with a V-neckline and long sleeves. Front flap
+          pockets. Button-up front.
+        </p>
+
+        <div class="pro-clr"></div>
+
+        <div class="pro-pri" id="price">₹ 5,990.00</div>
+        <div class="pro-mrp">MRP incl. of all taxes</div>
+
+        <ul class="size-guide" id="size"></ul>
+        <div class="size-row">
+          <button class="size-btn your-guide-info">FIND YOUR SIZE</button>
+          <button class="size-btn size-guide-info">SIZE GUIDE</button>
+        </div>
+
+        <button class="atb-btn size_btn" id="btn_add-to-bag">Add to bag</button>
+
+        <div class="mob_cont">
+          <p>
+            Long collared blazer with a V-neckline and long sleeves. Front flap
+            pockets. Button-up front.
+          </p>
+
+          <div class="pro-clr">NAVY BLUE | 5507/725</div>
+        </div>
+
+        <button class="size-btn delivery-guid">
+          DELIVERY, EXCHANGES AND RETURNS
+        </button>
+      </div>
+      <div class="size-guid-popup">
+        <div class="size-guid-content">
+          <div class="close-btn">×</div>
+          <div class="content-title">
+            <h4>SIZE GUIDE</h4>
+            <h5>SWEATER</h5>
+          </div>
+          <div class="content-img">
+            <img src="Images/size-guid.jpg" alt="" />
+          </div>
+          <div class="content-select">
+            <select name="cars" id="cars">
+              <option>Choose a size</option>
+              <option>XS</option>
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+              <option>XL</option>
+              <option>XXL</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="your-size-popup">
+        <div class="your-size-content desk_view">
+          <div class="privacy-close">
+            <a href="#">Privacy</a>
+            <div class="close-btn">×</div>
+          </div>
+          <div class="product-info">
+            <div class="product-img">
+              <img src="images/product.html" alt="" />
+            </div>
+            <div class="product-detail">
+              <h2>We help you find the right size</h2>
+              <p class="mb-20">
+                We calculate the perfect fit based on your unique <br />
+                measurements
+              </p>
+              <h3>Measurements</h3>
+              <div class="cm-in">
+                <p>Your height and weight:</p>
+                <p><span>CM</span>| <span>IN </span></p>
+              </div>
+              <div class="height-width">
+                <div class="d-flex">
+                  <p>HEIGHT</p>
+                  <div></div>
+                  <p><span>0 CM</span></p>
+                </div>
+                <div class="d-flex">
+                  <p>WEIGHT</p>
+                  <div></div>
+                  <p><span>0 KG</span></p>
+                </div>
+              </div>
+              <h3>Preference</h3>
+              <div class="cm-in">
+                <p>How do you want it to fit?</p>
+              </div>
+              <div class="height-width">
+                <div class="d-flex">
+                  <div style="margin: 0"></div>
+                </div>
+                <p class="indcateor">
+                  <span>Tighter</span><span>Perfect</span> <span>Looser</span>
+                </p>
+              </div>
+              <div class="find-btn">
+                <button type="button" class="btn">Find my size</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="your-size-content mob_view">
+          <div class="privacy-close">
+            <div>
+              <h4>SIZE ADVISOR</h4>
+            </div>
+            <div class="close-btn">×</div>
+          </div>
+          <div class="product-info">
+            <div class="product-detail">
+              <!-- <h2>We help you find the right size</h2>
+                        <p class="mb-20">We calculate the perfect fit based on your unique <br> measurements</p>
+                        <h3>Measurements</h3>
+                        <div class="cm-in">
+                            <p> Your height and weight:</p>
+                            <p><span>CM</span>| <span>IN </span></p>
+                        </div> -->
+
+              <div class="cmin_btns">
+                <button
+                  class="cminbtn cmin_active"
+                  onclick="toggleVisibility('CM');"
+                >
+                  CM
+                </button>
+                <button class="cminbtn" onclick="toggleVisibility('IN');">
+                  IN
+                </button>
+              </div>
+
+              <div id="CM">
+                <div class="height-width">
+                  <div class="d-flex">
+                    <p>HEIGHT - CM</p>
+                    <div>
+                      <p>
+                        <span
+                          ><select name="sizecm" class="size_sele">
+                            <option value="">0 cm</option>
+                            <option value="">1 cm</option>
+                            <option value="">2 cm</option>
+                            <option value="">3 cm</option>
+                          </select></span
+                        >
+                      </p>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <p>WEIGHT - KG</p>
+                    <div>
+                      <p>
+                        <span
+                          ><select name="sizecm" class="size_sele">
+                            <option value="">0 kg</option>
+                            <option value="">1 kg</option>
+                            <option value="">2 kg</option>
+                            <option value="">3 kg</option>
+                          </select></span
+                        >
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="IN" style="display: none">
+                <div class="height-width">
+                  <div class="d-flex">
+                    <p>HEIGHT - FT, IN</p>
+                    <div>
+                      <p>
+                        <span
+                          ><select name="sizecm" class="size_sele">
+                            <option value="">0 ft 0 in</option>
+                            <option value="">1 ft 1 in</option>
+                            <option value="">2 ft 2 in</option>
+                            <option value="">3 ft 3 in</option>
+                          </select></span
+                        >
+                      </p>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <p>WEIGHT - LBS</p>
+                    <div>
+                      <p>
+                        <span
+                          ><select name="sizecm" class="size_sele">
+                            <option value="">0 lbs</option>
+                            <option value="">1 lbs</option>
+                            <option value="">2 lbs</option>
+                            <option value="">3 lbs</option>
+                          </select></span
+                        >
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <h3>Preference</h3>
+                        <div class="cm-in">
+                            <p>How do you want it to fit?</p>
+                        </div>
+                        <div class="height-width">
+                            <div class="d-flex">
+
+                                <div style="margin: 0;"></div>
+                            </div>
+                            <p class="indcateor"><span>Tighter</span><span>Perfect</span> <span>Looser</span></p>
+
+                        </div> -->
+              <div class="fsize_block">
+                <div class="fsize_block_headline">Preference</div>
+                <div class="fsize_block_description">
+                  How do you want it to fit?
+                </div>
+                <div class="fsize_control_group fsize_inputs_radio">
+                  <input
+                    data-ref="value"
+                    id="fsize_fit_m2"
+                    type="radio"
+                    name="fsize-fit"
+                    value="-2"
+                  />
+                  <label class="fsize_field_input" for="fsize_fit_m2"></label>
+                  <input
+                    data-ref="value"
+                    id="fsize_fit_m1"
+                    type="radio"
+                    name="fsize-fit"
+                    value="-1"
+                  />
+                  <label class="fsize_field_input" for="fsize_fit_m1"></label>
+                  <input
+                    data-ref="value"
+                    id="fsize_fit_0"
+                    type="radio"
+                    name="fsize-fit"
+                    value="0"
+                    checked
+                  />
+                  <label class="fsize_field_input" for="fsize_fit_0"></label>
+                  <input
+                    data-ref="value"
+                    id="fsize_fit_1"
+                    type="radio"
+                    name="fsize-fit"
+                    value="1"
+                  />
+                  <label class="fsize_field_input" for="fsize_fit_1"></label>
+                  <input
+                    data-ref="value"
+                    id="fsize_fit_2"
+                    type="radio"
+                    name="fsize-fit"
+                    value="2"
+                  />
+                  <label class="fsize_field_input" for="fsize_fit_2"></label>
+                </div>
+                <div class="fsize_fit_indicators">
+                  <div
+                    class="fsize_fit_indicator fsize_left"
+                    data-ref="button.tighter"
+                  >
+                    Tighter
+                  </div>
+                  <div
+                    class="fsize_fit_indicator fsize_center"
+                    data-ref="button.perfect"
+                  >
+                    Perfect
+                  </div>
+                  <div
+                    class="fsize_fit_indicator fsize_right"
+                    data-ref="button.looser"
+                  >
+                    Looser
+                  </div>
+                </div>
+              </div>
+              <div class="find-btn">
+                <button type="button" class="btn">Find my size</button>
+              </div>
+              <a href="#">Privacy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="delivery-guid-popup">
+        <div class="size-guid-content">
+          <div class="close-btn">×</div>
+          <div class="content-title">
+            <h4>SHIPPING, EXCHANGES AND RETURNS</h4>
+          </div>
+          <p><b>SHIPPING</b></p>
+          <p>COLLECTION AT A TwentyOne STORE - FREE</p>
+          <p>In the store of your choice within 3-5 working days.</p>
+          <p>HOME DELIVERY:</p>
+          <ul>
+            <li>
+              STANDARD DELIVERY - ₹ 290.00 / FREE (ORDERS OVER ₹ 2,990) The
+              estimated delivery time will be between 2-8 working days,
+              depending on the delivery address.
+            </li>
+          </ul>
+          <p>
+            At the time of processing your purchase, we will show you the
+            available shipping methods, the cost and the delivery date of your
+            order.
+          </p>
+          <p>EXCHANGES AND RETURNS</p>
+          <p>
+            You have 30 days from the shipping date to return your purchase from
+            TwentyOne.com.
+          </p>
+          <p>
+            The exchange option is not available for online purchases.
+            Nevertheless, you can always return your order within the
+            established return period and place another order.
+          </p>
+          <ul>
+            <li>
+              AT A TwentyOne STORE<br />
+              You can return items at any TwentyOne store free of charge in the
+              country/region where the purchase was made.
+            </li>
+            <li>
+              HOME COLLECTION<br />
+              You can request a home pick-up by going to the orders and returns
+              section. Returns have a cost of ₹ 100 that will be deducted from
+              the refunded amount.
+            </li>
+          </ul>
+          <p>
+            Some of our items may have special conditions for returns. Further
+            information in section Exchanges and Returns > Special Conditions.
+          </p>
+          <p>
+            You can find further information on the Exchange and Refunds Policy
+            and the right to waiver in our Purchase Conditions
+          </p>
+        </div>
+      </div>
+    </section>
+    <br /><br /><br />
+    <br /><br /><br />
+
+    <section class="section match similer">
+      <br /><br /><br />
+      <br /><br /><br />
+      <div class="sec-title">Recommended</div>
+
+      <div class="item-list" id="item-list">
+        <div class="responsive" id="responsive">
+          <!-- append Data  -->
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class=" section similer">
+        <div class="sec-title">
+            Similar Items
+        </div>
+        <div class="item-list">
+            <div class="responsive">
+
+
+                <div class="item-col">
+                    <div class="item-wrap">
+                        <div class="image-wrap">
+                            <img src="Images/img-3.jpg" alt="Image">
+                            <div class="item-brand">
+                                <img src="Images/joinlife-large.svg" alt="Image">
+                            </div>
+                        </div>
+                        <div class="item-name">
+                            LONGLINE STRAIGHT BLAZER
+                        </div>
+                        <div class="item-prize">
+                            ₹ 5,990.00
+                        </div>
+                        <div class="item-mrp">
+                            MRP incl. of all taxes
+                        </div>
+                        <button class="atb-btn">Add to bag</button>
+                    </div>
+                </div>
+
+                <div class=" item-col">
+                    <div class="item-wrap">
+                        <div class="image-wrap">
+                            <img src="Images/img-3.jpg" alt="Image">
+                            <div class="item-brand">
+                                <img src="Images/joinlife-large.svg" alt="Image">
+                            </div>
+                        </div>
+                        <div class="item-name">
+                            LONGLINE STRAIGHT BLAZER
+                        </div>
+                        <div class="item-prize">
+                            ₹ 5,990.00
+                        </div>
+                        <div class="item-mrp">
+                            MRP incl. of all taxes
+                        </div>
+                        <button class="atb-btn">Add to bag</button>
+                    </div>
+                </div>
+
+                <div class=" item-col">
+                    <div class="item-wrap">
+                        <div class="image-wrap">
+                            <img src="Images/img-3.jpg" alt="Image">
+                            <div class="item-brand">
+                                <img src="Images/joinlife-large.svg" alt="Image">
+                            </div>
+                        </div>
+                        <div class="item-name">
+                            LONGLINE STRAIGHT BLAZER
+                        </div>
+                        <div class="item-prize">
+                            ₹ 5,990.00
+                        </div>
+                        <div class="item-mrp">
+                            MRP incl. of all taxes
+                        </div>
+                        <button class="atb-btn">Add to bag</button>
+                    </div>
+                </div>
+                <div class="item-col">
+                    <div class="item-wrap">
+                        <div class="image-wrap">
+                            <img src="Images/img-3.jpg" alt="Image">
+                            <div class="item-brand">
+                                <img src="Images/joinlife-large.svg" alt="Image">
+                            </div>
+                        </div>
+                        <div class="item-name">
+                            LONGLINE STRAIGHT BLAZER
+                        </div>
+                        <div class="item-prize">
+                            ₹ 5,990.00
+                        </div>
+                        <div class="item-mrp">
+                            MRP incl. of all taxes
+                        </div>
+                        <button class="atb-btn">Add to bag</button>
+                    </div>
+                </div>
+
+                <div class=" item-col">
+                    <div class="item-wrap">
+                        <div class="image-wrap">
+                            <img src="Images/img-3.jpg" alt="Image">
+                            <div class="item-brand">
+                                <img src="Images/joinlife-large.svg" alt="Image">
+                            </div>
+                        </div>
+                        <div class="item-name">
+                            LONGLINE STRAIGHT BLAZER
+                        </div>
+                        <div class="item-prize">
+                            ₹ 5,990.00
+                        </div>
+                        <div class="item-mrp">
+                            MRP incl. of all taxes
+                        </div>
+                        <button class="atb-btn">Add to bag</button>
+                    </div>
+                </div>
+
+                <div class=" item-col">
+                    <div class="item-wrap">
+                        <div class="image-wrap">
+                            <img src="Images/img-3.jpg" alt="Image">
+                            <div class="item-brand">
+                                <img src="Images/joinlife-large.svg" alt="Image">
+                            </div>
+                        </div>
+                        <div class="item-name">
+                            LONGLINE STRAIGHT BLAZER
+                        </div>
+                        <div class="item-prize">
+                            ₹ 5,990.00
+                        </div>
+                        <div class="item-mrp">
+                            MRP incl. of all taxes
+                        </div>
+                        <button class="atb-btn">Add to bag</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Cart PopUp -->
+    <div class="cart" id="cart">
+      <div class="cart-container">
+        <div class="close-cart">
+          <svg
+            id="cart-close"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 384 512"
+          >
+            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+            />
+          </svg>
+          <h2>Cart</h2>
+        </div>
+        <div class="cart-items">
+          <div class="cart-item">
+            <div class="left">
+              <img src="./assets/img/c1.jpg" alt="" />
+            </div>
+            <div class="center">
+              <div class="product-title">
+                <p class="product-heading">Product title</p>
+                <p>&#8377; 1,XXX</p>
+              </div>
+              <p class="product-color">Product Color &#47; <span>Size</span></p>
+              <div class="quantity">
+                <p>Quantity</p>
+                <div class="quantity-count">
+                  <span id="minus">-</span>
+                  <span id="counter">0</span>
+                  <span id="plus">+</span>
+                </div>
+              </div>
+              <div class="delete-item">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  viewBox="0 0 448 512"
+                >
+                  <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="cart-item">
+            <div class="left">
+              <img src="./assets/img/c10.jpg" alt="" />
+            </div>
+            <div class="center">
+              <div class="product-title">
+                <p class="product-heading">Product title</p>
+                <p>&#8377; 1,XXX</p>
+              </div>
+              <p class="product-color">Product Color &#47; <span>Size</span></p>
+              <div class="quantity">
+                <p>Quantity</p>
+                <div class="quantity-count">
+                  <span id="minus">-</span>
+                  <span id="counter">0</span>
+                  <span id="plus">+</span>
+                </div>
+              </div>
+              <div class="delete-item">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  viewBox="0 0 448 512"
+                >
+                  <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="cart-item">
+            <div class="left">
+              <img src="https://placehold.co/50x80" alt="" />
+            </div>
+            <div class="center">
+              <div class="product-title">
+                <p class="product-heading">Product title</p>
+                <p>&#8377; 1,XXX</p>
+              </div>
+              <p class="product-color">Product Color &#47; <span>Size</span></p>
+              <div class="quantity">
+                <p>Quantity</p>
+                <div class="quantity-count">
+                  <span id="minus">-</span>
+                  <span id="counter">0</span>
+                  <span id="plus">+</span>
+                </div>
+              </div>
+              <div class="delete-item">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  viewBox="0 0 448 512"
+                >
+                  <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="cart-item">
+            <div class="left">
+              <img src="https://placehold.co/50x80" alt="" />
+            </div>
+            <div class="center">
+              <div class="product-title">
+                <p class="product-heading">Product title</p>
+                <p>&#8377; 1,XXX</p>
+              </div>
+              <p class="product-color">Product Color &#47; <span>Size</span></p>
+              <div class="quantity">
+                <p>Quantity</p>
+                <div class="quantity-count">
+                  <span id="minus">-</span>
+                  <span>0</span>
+                  <span id="plus">+</span>
+                </div>
+              </div>
+              <div class="delete-item">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  viewBox="0 0 448 512"
+                >
+                  <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!-- Card Items End -->
+        </div>
+        <div class="total-strip">
+          <div class="border"></div>
+          <div class="subtotal">
+            <p>Subtotal</p>
+            <p>&#8377; X,XXX</p>
+          </div>
+          <button id="checkoutBtn" onclick="proceedToCheckout()">
+            Proceed to Checkout
+          </button>
+        </div>
+      </div>
+      <!-- container end-->
+    </div>
+
+    <footer class="footer">
+      <div class="newsletter">
+        <div class="footer-title">JOIN OUR NEWSLETTER</div>
+        <form>
+          <input type="text" class="form-input" />
+          <label>Enter your email address here</label>
+        </form>
+      </div>
+
+      <ul class="social-links">
+        <li><a href="#" target="_blank">INSTAGRAM</a></li>
+        <li><a href="#" target="_blank">FACEBOOK</a></li>
+        <li><a href="#" target="_blank">TWITTER</a></li>
+        <li><a href="#" target="_blank">PINTEREST</a></li>
+        <li><a href="#" target="_blank">YOUTUBE</a></li>
+        <li><a href="#" target="_blank">SPOTIFY</a></li>
+      </ul>
+
+      <div class="fw-row">
+        <div class="fw-col">
+          <div class="fw-title">HELP</div>
+          <ul class="fw-item-list">
+            <li>
+              <a href="#">SHOP AT TwentyOne.COM</a>
+            </li>
+            <li>
+              <a href="#"> PRODUCT </a>
+            </li>
+            <li>
+              <a href="#"> GIFT CARD </a>
+            </li>
+            <li>
+              <a href="#"> PAYMENT </a>
+            </li>
+            <li>
+              <a href="#"> SHIPPING </a>
+            </li>
+            <li>
+              <a href="#"> EXCHANGES AND RETURNS </a>
+            </li>
+            <li>
+              <a href="#"> SHOPS AND COMPANY </a>
+            </li>
+            <li>
+              <a href="#"> CLOTHES COLLECTION PROGRAMME </a>
+            </li>
+            <li>
+              <a href="#"> MY ACCOUNT </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="fw-col">
+          <div class="fw-title">FOLLOW US</div>
+          <ul class="fw-item-list">
+            <li>
+              <a href="#"> NEWSLETTER </a>
+            </li>
+            <li>
+              <a href="#"> INSTAGRAM </a>
+            </li>
+            <li>
+              <a href="#"> FACEBOOK </a>
+            </li>
+            <li>
+              <a href="#"> TWITTER </a>
+            </li>
+            <li>
+              <a href="#"> PINTEREST</a>
+            </li>
+            <li>
+              <a href="#"> YOUTUBE</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="fw-col">
+          <div class="fw-title">COMPANY</div>
+          <ul class="fw-item-list">
+            <li>
+              <a href="#"> ABOUT US </a>
+            </li>
+            <li>
+              <a href="#"> JOIN LIFE </a>
+            </li>
+            <li>
+              <a href="#"> OFFICES </a>
+            </li>
+            <li>
+              <a href="#"> STORES </a>
+            </li>
+            <li>
+              <a href="#"> WORK WITH US </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="fw-col">
+          <div class="fw-title">POLICIES</div>
+          <ul class="fw-item-list">
+            <li>
+              <a href="#"> PRIVACY POLICY </a>
+            </li>
+            <li>
+              <a href="#"> PURCHASE CONDITIONS </a>
+            </li>
+            <li>
+              <a href="#"> GIFT CARD CONDITIONS </a>
+            </li>
+            <li>
+              <a href="#"> COOKIES SETTINGS </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="origin-wrap mo_footer">
+        <div class="origin-lang">
+          <div class="ori-lang">ENGLISH</div>
+        </div>
+        <div class="f-breadcrumbs">
+          <ul class="bred-links">
+            <li>
+              <a href="#"> TwentyOne </a>
+              <span class="divider">/</span>
+            </li>
+            <li>
+              <a href="#"> WOMAN </a>
+              <span class="divider">/</span>
+            </li>
+            <li>
+              <a href="#"> PINSTRIPED BLAZER </a>
+            </li>
+          </ul>
+        </div>
+        <div class="origin">
+          <div class="ori-cun">Cookies settings</div>
+        </div>
+      </div>
+
+      <div class="f-breadcrumbs">
+        <ul class="bred-links">
+          <li>
+            <a href="#"> TwentyOne </a>
+            <span class="divider">/</span>
+          </li>
+          <li>
+            <a href="#"> WOMAN </a>
+            <span class="divider">/</span>
+          </li>
+          <li>
+            <a href="#"> PINSTRIPED BLAZER </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="origin-wrap">
+        <div class="origin">
+          <span class="ori-cun"> INDIA </span>
+        </div>
+        <div class="origin-lang">
+          <span class="ori-lang"> ENGLISH </span>
+          <span class="copyright"> © ALL RIGHTS RESERVED </span>
+        </div>
+      </div>
+
+      <div class="legal-info">
+        <p>NAME AND ADDRESS OF THE MANUFACTURER:</p>
+        <p>INDUSTRIA DE DISEÑO TEXTIL, S.A. (INDITEX, S.A.)</p>
+        <p>
+          AVENIDA DE LA DIPUTACIÓN, EDIFICIO INDITEX, 15143, ARTEIXO (A CORUÑA),
+          SPAIN
+        </p>
+      </div>
+    </footer>
+    <script
+      src="js/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="../ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/slick.min.js"></script>
+
+    <!-- Recommended Product -->
+    <script>
+      fetch("http://localhost:5055/api/products/show")
+        .then((res) => res.json())
+        .then((res) => {
+          if (res.length >= 0) {
+            const resPonsiveClass = document.getElementById("item-list");
+            const Colom = document.getElementById("responsive");
+            Colom.innerHTML = "";
+            const data = res.map((data) => {
+              return `
+                    <div class="item-col">
+                      <div class="item-wrap">
+                        <div class="image-wrap">
+                            <a href=./product2.html?id=${data._id}><img src=http://localhost:5055/api/static/${data.image} alt="Image"></a>
+                        </div>
+                        <div class="item-name">
+                            ${data.title.en}
+                        </div>
+                        <div class="item-prize">
+                            ₹ ${data.prices.price}
+                        </div>
+                        <div class="item-mrp">
+                            MRP incl. of all taxes
+                        </div>
+                        <button class="atb-btn" id="btn_add-to-bag"><a href=./product2.html?id=${data._id}>Add to bag</a></button>
+                    </div>
+                </div>`;
+            });
+            Colom.innerHTML += data;
+            resPonsiveClass.appendChild(Colom);
+            const htmlString = data[0];
+          }
+        });
+
+      /// product page intigration ..
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get("id");
+      fetch(`http://localhost:5055/api/products/get-one-product/${id}`)
+        .then((res) => {
+          return res.json();
+        })
+        .then((res) => {
+          if (res.Data) {
+            console.log(res, "test");
+            const img = document.getElementById("img-Product");
+            const titleName = document.getElementById("title-name");
+            const description = document.getElementById("description");
+            const priceData = document.getElementById("price");
+            const imgData =
+              res.Data.image &&
+              res.Data.image.map((data, i) => {
+                img.src = `http://localhost:5055/api/static/${data}`;
+              });
+            titleName.innerText = res.Data.title.en;
+            description.innerText = res.Data.description.en;
+            priceData.innerText = `₹ ${
+              res.Data.prices.price
+                ? res.Data.prices.price
+                : res.Data.variants[0].price
+            }`;
+
+            const size = document.getElementById("size");
+            const variants = res.Data.variants;
+
+            function getAllVariants() {
+              variants.forEach((variant, idx) => {
+                const variantKey = Object.keys(variant);
+
+                fetch(
+                  `http://localhost:5055/api/attributes/child/${
+                    variantKey[0]
+                  }/${variant[variantKey[0]]}`
+                )
+                  .then((res) => {
+                    return res.json();
+                  })
+                  .then((data) => {
+                    if (data.status === "show") {
+                      const li = document.createElement("li");
+                      li.appendChild(document.createTextNode(data?.name?.de));
+
+                      li.onclick = () => {
+                        priceData.innerText = variant["price"];
+                      };
+
+                      size.appendChild(li);
+                    }
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
+              });
+            }
+
+            getAllVariants();
+
+            document
+              .getElementById("btn_add-to-bag")
+              .addEventListener("click", () => {
+                const userToken = JSON.parse(localStorage.getItem("userToken"));
+                const orderData = {
+                  productId: id,
+                  img: res.Data.image.toString(),
+                  title: res.Data.title.en,
+                  price: res.Data.prices.price,
+                  userId: user._id,
+                  quantity: 1,
+                };
+                
+                addItemToBag(orderData);
+                // console.log(userToken, "userToken", 'order : ', orderData);
+                fetch("http://localhost:5055/api/order/add", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                     Authorization: `Bearer ${userToken}`,
+                  },
+                  body: JSON.stringify(orderData),
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    console.log(data, "data");
+                  })
+                  .catch((error) => {
+                    console.error("Error:", error);
+                  });
+              });
+            // const variants =
+            //   res.Data &&
+            //   res.Data.variants.map((data, i) => {
+
+            //   });
+            // console.log(variants, "variants");
+            // const size = document.getElementById("size");
+            // console.log(size, "sixzd");
+          }
+        });
+    </script>
+    <!-- Menu -->
+    <script>
+      document.getElementById("menu_icon").addEventListener("click", () => {
+        let body = document.getElementById("home");
+        body.classList.toggle("menu_shown");
+      });
+    </script>
+
+    <script>
+      $(".Click-here").on("click", function () {
+        $(".custom-model-main").addClass("model-open");
+      });
+      $(".close-btn, .bg-overlay").click(function () {
+        $(".custom-model-main").removeClass("model-open");
+      });
+
+      document.getElementById("close-btn").addEventListener("click", () => {
+        $(".custom-model-main").removeClass("model-open");
+      });
+    </script>
+    <script>
+      $(".size-guide-info").on("click", function () {
+        $(".size-guid-popup").addClass("model-open-size");
+        $("body").addClass("model-show");
+      });
+      $(".close-btn ").click(function () {
+        $(".size-guid-popup").removeClass("model-open-size");
+        $("body").removeClass("model-show");
+      });
+    </script>
+    <script>
+      $(".delivery-guid").on("click", function () {
+        $(".delivery-guid-popup").addClass("model-open-size");
+        $("body").addClass("model-show");
+      });
+      $(".close-btn ").click(function () {
+        $(".delivery-guid-popup").removeClass("model-open-size");
+        $("body").removeClass("model-show");
+      });
+    </script>
+    <script>
+      $(".your-guide-info").on("click", function () {
+        $(".your-size-popup").addClass("model-open-yoursize");
+        $("body").addClass("model-show");
+      });
+      $(".close-btn ").click(function () {
+        $(".your-size-popup").removeClass("model-open-yoursize");
+        $("body").removeClass("model-show");
+      });
+    </script>
+    <script>
+      $(".bar-menu").on("click", function () {
+        $(".main-saidbar").addClass("menu-open");
+        $("body").addClass("menu-open");
+      });
+      $(".close-menu ").click(function () {
+        $(".main-saidbar").removeClass("menu-open");
+        $("body").removeClass("menu-open");
+      });
+    </script>
+    <script>
+      $(".responsive").slick({
+        doats: false,
+        arrows: false,
+        infinite: true,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        responsive: [
+          {
+            breakpoint: 1199,
+            settings: {
+              slidesToShow: 4,
+              slidesToScroll: 1,
+              infinite: true,
+            },
+          },
+          {
+            breakpoint: 767,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 575,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+            },
+          },
+          // You can unslick at a given breakpoint now by adding:
+          // settings: "unslick"
+          // instead of a settings object
+        ],
+      });
+
+      const slider = $(".image-slider");
+
+      slider.slick({
+        vertical: true,
+        verticalSwiping: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+      });
+
+      // slider.slick();
+      // slider.on('mousewheel', (function (e) {
+      //     e.preventDefault();
+
+      //     if (e.originalEvent.deltaX < 0) {
+      //         $(this).slick('slickPrev');
+      //     } else{
+      //         $(this).slick('slickNext');
+      //     }
+      // }));
+      slider.on("mousewheel", function (e) {
+        e.preventDefault();
+
+        if (e.originalEvent.deltaY < 0) {
+          $(this).slick("slickPrev");
+        } else {
+          $(this).slick("slickNext");
+        }
+      });
+    </script>
+    <script>
+      function myFunction() {
+        var dots = document.getElementById("dots");
+        var moreText = document.getElementById("more");
+        var btnText = document.getElementById("myBtn");
+
+        if (dots.style.display === "none") {
+          dots.style.display = "block";
+          btnText.innerHTML = "Read more";
+          moreText.style.display = "none";
+        } else {
+          dots.style.display = "none";
+          btnText.innerHTML = "Read less";
+          moreText.style.display = "block";
+        }
+      }
+    </script>
+    <script>
+      // Show the first tab and hide the rest
+      $("#tabs-nav li:first-child").addClass("active");
+      $(".tab-content").hide();
+      $(".tab-content:first").show();
+
+      // Click function
+      $("#tabs-nav li").click(function () {
+        $("#tabs-nav li").removeClass("active");
+        $(this).addClass("active");
+        $(".tab-content").hide();
+
+        var activeTab = $(this).find("a").attr("href");
+        $(activeTab).fadeIn();
+        return false;
+      });
+    </script>
+
+    <script>
+      $(".size_btn").click(function () {
+        $(".size-guide, .size-row").addClass("size_btn_show");
+      });
+    </script>
+    <script>
+      $(".size_btn").click(function () {
+        $(".bg-overlay, body").addClass("sizechartover");
+      });
+    </script>
+    <script>
+      $(".size-guide li, .bg-overlay").click(function () {
+        $(".bg-overlay, body").removeClass("sizechartover");
+      });
+    </script>
+    <script>
+      $(".size-guide li, .bg-overlay").click(function () {
+        $(".size-guide, .size-row").removeClass("size_btn_show");
+      });
+    </script>
+
+    <script>
+      var divs = ["CM", "IN"];
+      var visibleDivId = null;
+      function toggleVisibility(divId) {
+        if (visibleDivId === divId) {
+          //visibleDivId = null;
+        } else {
+          visibleDivId = divId;
+        }
+        hideNonVisibleDivs();
+      }
+      function hideNonVisibleDivs() {
+        var i, divId, div;
+        for (i = 0; i < divs.length; i++) {
+          divId = divs[i];
+          div = document.getElementById(divId);
+          if (visibleDivId === divId) {
+            div.style.display = "block";
+          } else {
+            div.style.display = "none";
+          }
+        }
+      }
+    </script>
+
+    <script>
+      var selector = ".cminbtn";
+
+      $(selector).on("click", function () {
+        $(selector).removeClass("cmin_active");
+        $(this).addClass("cmin_active");
+      });
+    </script>
+
+    <div class="bg-overlay"></div>
+  </body>
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute("href").substring(1);
+        const targetElement = document.getElementById(targetId);
+        const headerHeight = document.querySelector("header").offsetHeight;
+
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest",
+          });
+        }
+      });
+    });
+  </script>
+  <script>
+    const cart = document.getElementById("cart");
+    const cartBtn = document.getElementById("cart-btn");
+    cartBtn.addEventListener("click", () => {
+      cart.style.display = "block";
+    });
+    const cartClose = document.getElementById("cart-close");
+    cartClose.addEventListener("click", () => {
+      cart.style.display = "none";
+    });
+  </script>
+  <script>
+    let minus = document.getElementById("minus");
+    let plus = document.getElementById("plus");
+    let counter = document.getElementById("counter");
+    let count = 0;
+
+    plus.addEventListener("click", () => {
+      count = count + 1;
+      counter.innerText = count;
+    });
+
+    minus.addEventListener("click", () => {
+      if (count > 0) {
+        count = count - 1;
+        counter.innerText = count;
+      }
+    });
+  </script>
+  <script>
+    const loginWeb = document.getElementById("login-web");
+    const loginHeaderRight = document.getElementById("login-header-right");
+    const loginMobile = document.getElementById("login-mobile");
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      loginWeb.innerHTML = user.name;
+      loginWeb.href = "./profile.html";
+      loginHeaderRight.innerHTML = user.name;
+      loginHeaderRight.href = "./profile.html";
+      loginMobile.innerHTML = user.name;
+      loginMobile.href = "./profile.html";
+    }
+  </script>
+  <!-- Collection DropDown -->
+  <script>
+    const dropdown = document.getElementById("dropdown");
+    function showDropDown() {
+      dropdown.classList.add("mouseover");
+    }
+    function hideDropDown() {
+      dropdown.classList.remove("mouseover");
+    }
+    fetch("http://localhost:5055/api/category/all")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.length > 0) {
+          // data.map(data => {
+          //   dropdown.innerHTML = `
+          //             <li><a href=./trend.html?id=${data._id}>${data.name.en}</a></li>
+          //             `
+          // })
+          data.forEach((data) => {
+            const listItem = `
+            <li><a href=./trend.html?id=${data._id}>${data.name.en}</a></li>
+            `;
+            dropdown.insertAdjacentHTML("beforeend", listItem);
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  </script>
+  <script>
+    const collectionBtn = document.getElementById("mobile-collection-btn");
+    const mobileCollection = document.getElementById("mobile-collection");
+    collectionBtn.addEventListener("click", () => {
+      mobileCollection.classList.toggle("collection-active");
+    });
+
+    fetch("http://localhost:5055/api/category/all")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.length > 0) {
+          data.forEach((data) => {
+            const listItem = `
+            <a href=./trend.html?id=${data._id}><span>${data.name.en}</span></a>
+            `;
+            mobileCollection.insertAdjacentHTML("beforeend", listItem);
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  </script>
+  <script>
+    const mobileCartBtn = document.getElementById("mobile-cart-btn");
+    mobileCartBtn.addEventListener("click", () => {
+      cart.style.display = "block";
+    });
+  </script>
+
+  <script>
+    function proceedToCheckout() {
+      window.location.href = "./checkout.html";
+    }
+  </script>
+  <script src="./js/search.js"></script>
+  <script src="./cart.js"></script>
+</html>

@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="../twenty one/css/custom.css" /> -->
+    <link rel="stylesheet" href="./css/slick.css">
+    <link rel="stylesheet" href="./css/slick-theme.css">
+    <link href="./css/custom.css" rel="stylesheet">
+
+    <title>Your Account | Twenty One</title>
+    <style>
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .main-account {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            align-items: center;
+            justify-content: flex-start;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 0;
+            margin-bottom: 30px;
+        }
+
+        .right-side {
+            width: 30%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 30px 50px;
+            border-left: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            background-color: rgba(0, 0, 0, 0.01);
+        }
+
+        .right-side li {
+            width: 100%;
+            height: 30px;
+            list-style: none;
+            font-size: 13px;
+            text-transform: uppercase;
+            padding: 5px 0px;
+            transition: 0.2s all ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        label {
+            cursor: pointer;
+        }
+
+        .list label {
+            position: absolute;
+            z-index: -2;
+        }
+
+        input[type=radio] {
+            display: none;
+        }
+
+        .right-side li:hover {
+            border-left: 1px solid rgba(0, 0, 0, 0.4);
+            padding-left: 20px;
+        }
+
+        .active {
+            border-left: 1px solid rgba(0, 0, 0, 0.4);
+            padding-left: 20px !important;
+        }
+
+        .left-side {
+            width: 70%;
+            height: 100%;
+            padding: 0px 30px;
+            padding-top: 20px;
+        }
+
+        .heading {
+            width: 100%;
+            text-align: left;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .my-orders {
+            max-width: 100%;
+            width: auto;
+            display: none;
+        }
+
+        .orders-container {
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin-top: 30px;
+            flex-direction: column;
+            gap: 40px;
+            height: 80vh;
+            overflow-y: scroll;
+        }
+
+        .orders-container::-webkit-scrollbar {
+            width: 2px;
+        }
+
+        .orders-container::-webkit-scrollbar-thumb {
+            width: 2px;
+            background-color: black;
+        }
+
+        .order-item {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            width: 100%;
+            gap: 20px;
+        }
+
+        .item-left {
+            max-width: 20%;
+            width: auto;
+        }
+
+        .item-left img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .item-center {
+            width: 60%;
+            padding-right: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .item-center .title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .item-right {
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 20px;
+            flex-direction: column;
+            margin-left: 20px;
+        }
+
+        .item-right #product-price {
+            font-weight: 600;
+        }
+
+        .profile-tab {
+            width: 100%;
+            height: 100vh !important;
+            padding-bottom: 10px;
+        }
+
+        .profile-details {
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 30px 0px;
+        }
+
+        .main-details {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .input-block {
+            width: 45%;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+        }
+
+        .input-block input {
+            max-width: 100%;
+            width: 100%;
+            outline: none;
+            border: none;
+            padding: 12px 2px;
+            caret-color: #000000;
+
+        }
+
+        .input-block span {
+            font-size: 14px;
+        }
+
+        .input-block #verify-email {
+            font-size: 12px;
+            cursor: pointer;
+            color: rgb(0, 212, 0);
+            width: 120px;
+            text-decoration: underline;
+        }
+
+        .delivery {
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .delivery .name {
+            display: flex;
+            width: 100%;
+            gap: 10px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .name .input {
+            width: 100%;
+        }
+
+        .input select {
+            padding: 0px 10px;
+            width: 100%;
+            outline: none;
+            cursor: pointer;
+            border: none;
+
+        }
+
+        .input-select {
+            padding: 6px 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .input-select span {
+            font-size: 12px;
+            padding: 0px 12px;
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        .address-details {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .address-details .input {
+            width: 33%;
+        }
+
+        .address-details .input-state {
+            width: 33%;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 22px 10px;
+            cursor: pointer;
+        }
+
+        .input-state select {
+            cursor: pointer;
+        }
+
+        .input {
+            max-width: 100%;
+            width: auto;
+            margin: 10px 0px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 2px;
+        }
+
+        .input input {
+            width: 100%;
+            outline: none;
+            border: none;
+            padding: 15px 10px;
+        }
+
+        .contact-email {
+            width: 100%;
+        }
+
+        .mail-offer {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            /* width: 100vw; */
+        }
+
+        .mail-offer label {
+            font-size: 13px;
+            letter-spacing: .2px;
+            cursor: pointer;
+        }
+
+        .buttons {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #update {
+            margin-top: 40px;
+            padding: 10px 30px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background-color: rgb(41 143 41);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #back {
+            border-radius: 5px;
+            margin-top: 40px;
+            padding: 10px 30px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 0, 0, 0.5);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .footer {
+            margin-top: 200px;
+        }
+    </style>
+
+</head>
+
+<body id="trend-home">
+    <div class="nav container">
+        <div class="left">
+            <a href="index.html"> <img src="./assets/img/logo-black.svg" /></a>
+        </div>
+        <div class="right ">
+            <div>
+                <a class="search-btn search-box Click-here" id="search-btn">SEARCH</a>
+            </div>
+            <div><a href="about/index.html">About</a></div>
+            <div><a href="collections/index.html">Collections</a></div>
+            <div id="login"><a href="./login.html" id="login-web" name="login-web">Log in</a></div>
+            <div><a id="cart-btn" style="cursor: pointer;">Cart</a></div>
+
+        </div>
+    </div>
+    <div class="custom-model-main" id="custom-model-main">
+        <div class="custom-model-inner">
+            <div class="close-btn">×</div>
+            <div class="custom-model-wrap">
+                <div class="pop-up-content-wrap">
+                    <header class="header">
+                        <div class="header-left">
+                            <button class="menu-btn" aria-label="Open menu">
+                                <svg id="close-btn" xmlns="http://www.w3.org/2000/svg" height="1em"
+                                    viewBox="0 0 384 512">
+                                    <style>
+                                        svg {
+                                            fill: #000000;
+                                        }
+                                    </style>
+                                    <path
+                                        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                                </svg>
+                            </button>
+
+                            <div class="logo">
+                                <a>
+                                    <img src="./Images/logo.svg" alt="" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="header-right">
+                            <span class="top-menus">
+                                <a class="menu" id="login-header-right" name="login-header-right">LOG IN</a>
+                                <a class="menu">HELP </a>
+                                <a class="menu">
+                                    <span class="header-cart">
+                                        <svg class="layout-header-links__cart-icon" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M9 5.001V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.001h5v7h-1v-6H5v13.9h10v1H4V5h5zM10 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1.001h-4V4z">
+                                            </path>
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M22.8 23.4v-9h-5.4v9l2.695-2.827L22.8 23.4zm-4.6-1.998l1.894-1.987L22 21.407V15.2h-3.8v6.202z">
+                                            </path>
+                                        </svg>
+                                        <span class="items-count">0</span>
+                                    </span></a>
+                            </span>
+                        </div>
+                    </header>
+
+                    <form class="formtop_space">
+                        <div class="search_form">
+                            <input type="search" name="search" placeholder="ENTER SEARCH TERMS" class="search_field" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a class="menu__icon mobile" id="menu_icon"><span></span></a>
+    <ul class="menu mobile" id="mobile">
+        <li>
+            <a href="index.html" class="menu__item"><img src="assets/img/logo-black.png" /></a>
+        </li>
+        <div>
+            <li><a class="Click-here menu__item" id="mobile-search">SEARCH</a></li>
+            <br />
+            <li><a href="about/index.html" class="menu__item">About</a></li>
+            <li>
+                <a href="collections/index.html" class="menu__item">Collections</a>
+            </li>
+            <li><a href="./login.html" class="menu__item" id="login-mobile" name="login-mobile">Log in</a></li>
+            <li><a href="./contact/index.html" class="menu__item">Help</a></li>
+            <li><a href="#" class="menu__item">Cart</a></li>
+        </div>
+        <li>
+            <a href="#" class="menu__item moon-menu">
+                <img src="assets/img/moon-face-black.png" /></a>
+        </li>
+    </ul>
+
+    <div class="main-account">
+        <div class="left-side">
+            <div class="my-orders" id="orders-tab">
+                <div class="heading">
+                    <p>Orders</p>
+                </div>
+                <div class="orders-container">
+                    <div class="order-item">
+                        <div class="item-left">
+                            <img src="https://placehold.co/80x100.png" alt="">
+                        </div>
+                        <div class="item-center">
+                            <p class="title">Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit
+                                amet.</p>
+                            <p class="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum aliquam
+                                laboriosam quas, quos cupiditate dolores!</p>
+                            <p class="size">size/color</p>
+                        </div>
+                        <div class="item-right">
+                            <span id="product-price">&#8377;2,000</span>
+                            <p>Quantity: <span>1</span></p>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <div class="item-left">
+                            <img src="https://placehold.co/80x100.png" alt="">
+                        </div>
+                        <div class="item-center">
+                            <p class="title">Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit
+                                amet.</p>
+                            <p class="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum aliquam
+                                laboriosam quas, quos cupiditate dolores!</p>
+                            <p class="size">size/color</p>
+                        </div>
+                        <div class="item-right">
+                            <span id="product-price">&#8377;2,000</span>
+                            <p>Quantity: <span>1</span></p>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <div class="item-left">
+                            <img src="https://placehold.co/80x100.png" alt="">
+                        </div>
+                        <div class="item-center">
+                            <p class="title">Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit
+                                amet.</p>
+                            <p class="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum aliquam
+                                laboriosam quas, quos cupiditate dolores!</p>
+                            <p class="size">size/color</p>
+                        </div>
+                        <div class="item-right">
+                            <span id="product-price">&#8377;2,000</span>
+                            <p>Quantity: <span>1</span></p>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <div class="item-left">
+                            <img src="https://placehold.co/80x100.png" alt="">
+                        </div>
+                        <div class="item-center">
+                            <p class="title">Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit
+                                amet.</p>
+                            <p class="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum aliquam
+                                laboriosam quas, quos cupiditate dolores!</p>
+                            <p class="size">size/color</p>
+                        </div>
+                        <div class="item-right">
+                            <span id="product-price">&#8377;2,000</span>
+                            <p>Quantity: <span>1</span></p>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <div class="item-left">
+                            <img src="https://placehold.co/80x100.png" alt="">
+                        </div>
+                        <div class="item-center">
+                            <p class="title">Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit
+                                amet.</p>
+                            <p class="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum aliquam
+                                laboriosam quas, quos cupiditate dolores!</p>
+                            <p class="size">size/color</p>
+                        </div>
+                        <div class="item-right">
+                            <span id="product-price">&#8377;2,000</span>
+                            <p>Quantity: <span>1</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-tab" id="profile-tab">
+                <div class="heading">
+                    <p>Profile</p>
+                </div>
+                <div class="profile-details">
+                    <div class="main-details">
+                        <div class="input-block">
+                            <span>Name:</span>
+                            <input type="text" name="name" disabled id="user-name" placeholder="Enter Your Name">
+                        </div>
+                        <div class="input-block">
+                            <span>Email:</span>
+                            <input type="email" name="email" id="user-email" disabled placeholder="user@gmail.com">
+                            <span id="verify-email">Verify Email</span>
+                        </div>
+                        <div class="input-block">
+                            <span>Phone:</span>
+                            <input type="tel" name="phone" id="user-phone" disabled minlength="10" maxlength="11"
+                                placeholder="Enter Your Number">
+                        </div>
+                    </div>
+                </div>
+                <div class="delivery">
+                    <div>
+                        <span class="heading">Address</span>
+                    </div>
+                    <div class="country">
+                        <div class="input input-select">
+                            <span>Country/Region</span>
+                            <select name="countries" id="countries-dropdown">
+                                <!-- append data from js -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="name">
+                        <div class="input">
+                            <input type="text" name="first-name" id="first-name" placeholder="First Name">
+                        </div>
+                        <div class="input">
+                            <input type="text" name="first-name" id="last-name" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="address">
+                        <div class="input">
+                            <input type="text" name="address" id="address" placeholder="Address">
+                        </div>
+                        <div class="address-details">
+                            <div class="input  input-select">
+                                <span>City</span>
+                                <select name="city" id="city-dropdown">
+                                    <!-- all satte append from js  -->
+                                </select>
+                            </div>
+                            <div class="input  input-select">
+                                <span>State/Region</span>
+                                <select name="state" id="state-dropdown">
+                                    <!-- all satte append from js  -->
+                                </select>
+                            </div>
+                            <div class="input ">
+                                <input type="text" name="pincode" id="pincode" placeholder="Pincode">
+                            </div>
+
+                        </div>
+                        <div class="phone">
+                            <div class="input">
+                                <input type="tel" name="phone" id="phone" placeholder="Phone">
+                            </div>
+                        </div>
+                        <div class="mail-offer">
+                            <input type="checkbox" name="save-info" id="save-info">
+                            <label for="save-info" name="save-info">Save this information for next time</label>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <a href="./index.html" id="back">Back</a>
+                        <button id="update">Update</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-side" id="right-side">
+            <div>
+                <li class="list" id="my-orders">
+                    <input type="radio" name="list" value="My Orders">
+                    <label for="my-orders" name="list">Recent Orders</label>
+                </li>
+            </div>
+            <div>
+                <li class="list active" id="profile">
+                    <input type="radio" name="list">
+                    <label for="profile" name="list">Profile</label>
+                </li>
+            </div>
+            <div>
+                <li class="logout" id="logout">Log Out</li>
+            </div>
+
+            <!-- <li class="list" id="my-orders">My Orders</li>
+            <li class="list" id="address">Address</li>
+            <li class="list" id="logout">Log Out</li> -->
+        </div>
+    </div>
+
+    <!-- cart section -->
+    <div class="cart" id="cart">
+        <div class="cart-container">
+            <div class="close-cart">
+                <svg id="cart-close" xmlns="http://www.w3.org/2000/svg" height="1em"
+                    viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                </svg>
+                <h2>Cart</h2>
+            </div>
+            <div class="cart-items">
+
+                <div class="cart-item">
+                    <div class="left">
+                        <img src="./assets/img/c1.jpg" alt="">
+                    </div>
+                    <div class="center">
+                        <div class="product-title">
+                            <p class="product-heading">Product title</p>
+                            <p>&#8377; 1,XXX</p>
+                        </div>
+                        <p class="product-color">Product Color &#47; <span>Size</span></p>
+                        <div class="quantity">
+                            <p>Quantity</p>
+                            <div class="quantity-count">
+                                <span id="minus">-</span>
+                                <span id="counter">0</span>
+                                <span id="plus">+</span>
+                            </div>
+                        </div>
+                        <div class="delete-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path
+                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-item">
+                    <div class="left">
+                        <img src="./assets/img/c10.jpg" alt="">
+                    </div>
+                    <div class="center">
+                        <div class="product-title">
+                            <p class="product-heading">Product title</p>
+                            <p>&#8377; 1,XXX</p>
+                        </div>
+                        <p class="product-color">Product Color &#47; <span>Size</span></p>
+                        <div class="quantity">
+                            <p>Quantity</p>
+                            <div class="quantity-count">
+                                <span id="minus">-</span>
+                                <span id="counter">0</span>
+                                <span id="plus">+</span>
+                            </div>
+                        </div>
+                        <div class="delete-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path
+                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-item">
+                    <div class="left">
+                        <img src="https://placehold.co/50x80" alt="">
+                    </div>
+                    <div class="center">
+                        <div class="product-title">
+                            <p class="product-heading">Product title</p>
+                            <p>&#8377; 1,XXX</p>
+                        </div>
+                        <p class="product-color">Product Color &#47; <span>Size</span></p>
+                        <div class="quantity">
+                            <p>Quantity</p>
+                            <div class="quantity-count">
+                                <span id="minus">-</span>
+                                <span id="counter">0</span>
+                                <span id="plus">+</span>
+                            </div>
+                        </div>
+                        <div class="delete-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path
+                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-item">
+                    <div class="left">
+                        <img src="https://placehold.co/50x80" alt="">
+                    </div>
+                    <div class="center">
+                        <div class="product-title">
+                            <p class="product-heading">Product title</p>
+                            <p>&#8377; 1,XXX</p>
+                        </div>
+                        <p class="product-color">Product Color &#47; <span>Size</span></p>
+                        <div class="quantity">
+                            <p>Quantity</p>
+                            <div class="quantity-count">
+                                <span id="minus">-</span>
+                                <span>0</span>
+                                <span id="plus">+</span>
+                            </div>
+                        </div>
+                        <div class="delete-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path
+                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Items End -->
+            </div>
+            <div class="total-strip">
+                <div class="border"></div>
+                <div class="subtotal">
+                    <p>Subtotal</p>
+                    <p>&#8377; X,XXX</p>
+                </div>
+                <button>Proceed to Checkout</button>
+            </div>
+
+        </div>
+        <!-- container end-->
+    </div>
+
+    <footer class=" footer">
+        <div class="newsletter">
+            <div class="footer-title">
+                JOIN OUR NEWSLETTER
+            </div>
+            <form>
+                <input type="text" class="form-input">
+                <label>Enter your email address
+                    here</label>
+            </form>
+        </div>
+
+        <ul class="social-links">
+            <li><a href="#" target="_blank">INSTAGRAM</a> </li>
+            <li><a href="#" target="_blank">FACEBOOK</a>
+            </li>
+            <li><a href="#" target="_blank">TWITTER</a>
+            </li>
+            <li><a href="#" target="_blank">PINTEREST</a></li>
+            <li><a href="#" target="_blank">YOUTUBE</a>
+            </li>
+            <li><a href="#" target="_blank">SPOTIFY</a>
+            </li>
+        </ul>
+
+        <div class="fw-row">
+            <div class="fw-col">
+                <div class="fw-title"> HELP </div>
+                <ul class="fw-item-list">
+                    <li>
+                        <a href="#">SHOP AT ZARA.COM</a>
+                    </li>
+                    <li>
+                        <a href="#"> PRODUCT </a>
+                    </li>
+                    <li>
+                        <a href="#"> GIFT CARD </a>
+                    </li>
+                    <li>
+                        <a href="#"> PAYMENT </a>
+                    </li>
+                    <li>
+                        <a href="#"> SHIPPING </a>
+                    </li>
+                    <li>
+                        <a href="#"> EXCHANGES AND
+                            RETURNS </a>
+                    </li>
+                    <li>
+                        <a href="#"> SHOPS AND COMPANY
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"> CLOTHES COLLECTION
+                            PROGRAMME </a>
+                    </li>
+                    <li>
+                        <a href="#"> MY ACCOUNT </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="fw-col">
+                <div class="fw-title"> FOLLOW US </div>
+                <ul class="fw-item-list">
+                    <li>
+                        <a href="#"> NEWSLETTER </a>
+                    </li>
+                    <li>
+                        <a href="#"> INSTAGRAM </a>
+                    </li>
+                    <li>
+                        <a href="#"> FACEBOOK </a>
+                    </li>
+                    <li>
+                        <a href="#"> TWITTER </a>
+                    </li>
+                    <li>
+                        <a href="#"> PINTEREST</a>
+                    </li>
+                    <li>
+                        <a href="#"> YOUTUBE</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="fw-col">
+                <div class="fw-title"> COMPANY </div>
+                <ul class="fw-item-list">
+                    <li>
+                        <a href="#"> ABOUT US </a>
+                    </li>
+                    <li>
+                        <a href="#"> JOIN LIFE </a>
+                    </li>
+                    <li>
+                        <a href="#"> OFFICES </a>
+                    </li>
+                    <li>
+                        <a href="#"> STORES </a>
+                    </li>
+                    <li>
+                        <a href="#"> WORK WITH US </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="fw-col">
+                <div class="fw-title"> POLICIES </div>
+                <ul class="fw-item-list">
+                    <li>
+                        <a href="#"> PRIVACY POLICY </a>
+                    </li>
+                    <li>
+                        <a href="#"> PURCHASE CONDITIONS
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"> GIFT CARD
+                            CONDITIONS </a>
+                    </li>
+                    <li>
+                        <a href="#"> COOKIES SETTINGS
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="origin-wrap mo_footer">
+            <div class="origin-lang">
+                <div class="ori-lang"> ENGLISH </div>
+            </div>
+            <div class="f-breadcrumbs">
+                <ul class="bred-links">
+                    <li>
+                        <a href="#"> ZARA </a>
+                        <span class="divider">/</span>
+                    </li>
+                    <li>
+                        <a href="#"> WOMAN </a>
+                        <span class="divider">/</span>
+                    </li>
+                    <li>
+                        <a href="#"> PINSTRIPED BLAZER </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="origin">
+                <div class="ori-cun"> Cookies settings </div>
+            </div>
+
+        </div>
+
+        <div class="f-breadcrumbs">
+            <ul class="bred-links">
+                <li>
+                    <a href="#"> ZARA </a>
+                    <span class="divider">/</span>
+                </li>
+                <li>
+                    <a href="#"> WOMAN </a>
+                    <span class="divider">/</span>
+                </li>
+                <li>
+                    <a href="#"> PINSTRIPED BLAZER </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="origin-wrap">
+            <div class="origin">
+                <span class="ori-cun"> INDIA </span>
+            </div>
+            <div class="origin-lang">
+                <span class="ori-lang"> ENGLISH </span>
+                <span class="copyright">
+                    © ALL RIGHTS RESERVED </span>
+            </div>
+        </div>
+
+
+        <div class="legal-info">
+            <p> NAME AND ADDRESS OF THE MANUFACTURER:
+            </p>
+            <p> INDUSTRIA DE DISEÑO TEXTIL, S.A.
+                (INDITEX, S.A.) </p>
+            <p> AVENIDA DE LA DIPUTACIÓN, EDIFICIO
+                INDITEX, 15143, ARTEIXO (A CORUÑA),
+                SPAIN </p>
+        </div>
+
+    </footer>
+    <script>
+
+
+    </script>
+    <script>
+        // $("#nav-search").on('click', function () {
+        //     $("#custom-model-main").addClass('model-open');
+        // });
+        // $(".close-btn, .bg-overlay").click(function () {
+        //     $("#custom-model-main").removeClass('model-open');
+        // console.log("hello");
+        // });
+        let model = document.getElementById('custom-model-main');
+        document.getElementById('search-btn').addEventListener('click', () => {
+            model.classList.add('model-open');
+            // console.log('hello');
+        });
+        document.getElementById('close-btn').addEventListener('click', () => {
+            model.classList.remove('model-open');
+        });
+    </script>
+    <script>
+        // $("#nav-search").on('click', function () {
+        //     $("#custom-model-main").addClass('model-open');
+        // });
+        // $(".close-btn, .bg-overlay").click(function () {
+        //     $("#custom-model-main").removeClass('model-open');
+        // console.log("hello");
+        // });
+        document.getElementById('mobile-search').addEventListener('click', () => {
+            model.classList.add('model-open');
+            // console.log('hello');
+        });
+        document.getElementById('close-btn').addEventListener('click', () => {
+            model.classList.remove('model-open');
+        });
+    </script>
+    <script>
+        document.getElementById('menu_icon').addEventListener('click', function () {
+            document.getElementById('trend-home').classList.toggle('menu_shown');
+        })
+    </script>
+
+
+    <!-- <script>
+        // $(document).ready(function () {
+        //     $('.menu__icon').click(function () {
+        //         $('#trend-home').toggleClass('menu_shown');
+        //     });
+        // });
+        document.getElementById('menu-icon').addEventListener('click', () => {
+
+        })
+    </script> -->
+    <!-- cart -->
+    <script>
+        const cart = document.getElementById('cart');
+        const cartBtn = document.getElementById('cart-btn');
+        cartBtn.addEventListener('click', () => {
+            cart.style.display = "block";
+        });
+        const cartClose = document.getElementById('cart-close');
+        cartClose.addEventListener('click', () => {
+            cart.style.display = "none";
+        })
+    </script>
+    <script>
+        let minus = document.getElementById('minus');
+        let plus = document.getElementById('plus');
+        let counter = document.getElementById('counter');
+        let count = 0;
+
+        plus.addEventListener('click', () => {
+            count = count + 1;
+            counter.innerText = count;
+        });
+
+        minus.addEventListener('click', () => {
+            if (count > 0) {
+
+                count = count - 1;
+                counter.innerText = count;
+            }
+        });
+
+
+    </script>
+    <script>
+        const loginWeb = document.getElementById("login-web")
+        const loginHeaderRight = document.getElementById("login-header-right")
+        const loginMobile = document.getElementById("login-mobile")
+        const user = JSON.parse(localStorage.getItem("user"))
+        if (user) {
+            loginWeb.innerHTML = user.name;
+            loginWeb.href = "./profile.html"
+            loginHeaderRight.innerHTML = user.name;
+            loginHeaderRight.href = "./profile.html"
+            loginMobile.innerHTML = user.name;
+            loginMobile.href = "./profile.html"
+        }
+        document.getElementById('logout').addEventListener("click", () => {
+            localStorage.removeItem('user');
+            window.location.href = './login.html';
+        })
+    </script>
+    <script>
+        const list = document.getElementsByClassName('list');
+        const ordersTab = document.getElementById('orders-tab');
+        const orderBtn = document.getElementById('my-orders');
+        const profileTab = document.getElementById('profile-tab');
+        const profileBtn = document.getElementById('profile');
+
+        // for (let i = 0; i < list.length; i++) {
+
+        //     list[i].addEventListener('click', () => {
+        //         list[i].classList.toggle('active');
+        //         if (orderBtn.classList.contains('active')) {
+        //             profileBtn.classList.add('active');
+        //         }
+        //     })
+
+        // }
+        // const list = document.querySelector('.list');
+
+        // list.forEach((listItem) => {
+        //     listItem.addEventListener('click', () => {
+        //         listItem.classList.toggle('active');
+        //     })
+        // })
+
+
+
+        orderBtn.addEventListener('click', () => {
+            ordersTab.style.display = "block";
+            profileTab.style.display = "none";
+            orderBtn.classList.add('active');
+            profileBtn.classList.remove('active');
+
+        })
+        profileBtn.addEventListener('click', () => {
+            ordersTab.style.display = "none";
+            profileTab.style.display = "block";
+            orderBtn.classList.remove('active');
+            profileBtn.classList.add('active');
+        })
+    </script>
+    <script>
+        var headers = new Headers();
+        headers.append("X-CSCAPI-KEY", "bklGOTZyZVFhQnRWV2ltRVhJY1RiRzJLSDRIb0ZCYWNDUm9LUlpUWA==");
+
+        var requestOptions = {
+            method: 'GET',
+            headers: headers,
+            redirect: 'follow'
+        };
+
+        fetch("https://api.countrystatecity.in/v1/countries", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                const countries = document.getElementById('countries-dropdown');
+                countries.innerHTML = "";
+                result.length >= 0 && result.forEach((data) => {
+                    const option = document.createElement('option');
+                    option.value = data.iso2;
+                    option.innerHTML = data.name;
+                    option.id = data.id;
+                    countries.appendChild(option);
+                });
+
+            }).catch(error => console.log('error', error));
+        let counteryCodeForcity = []
+        document.getElementById("countries-dropdown").addEventListener("change", (e) => {
+            const counteryCode = e.target.value
+            counteryCodeForcity.push(counteryCode)
+            fetch(`https://api.countrystatecity.in/v1/countries/${counteryCode}/states`, requestOptions)
+                .then(response => response.json())
+                .then(result => {
+                    const statesData = document.getElementById('state-dropdown');
+                    statesData.innerHTML = "";
+                    result.length >= 0 && result.forEach((data) => {
+                        const option = document.createElement('option');
+                        option.value = data.iso2;
+                        option.innerHTML = data.name;
+                        option.id = data.id;
+                        statesData.appendChild(option);
+                    });
+                }).catch(error => console.log('error', error));
+        })
+        document.getElementById("state-dropdown").addEventListener("change", (e) => {
+            const cityData = e.target.value
+            fetch(`https://api.countrystatecity.in/v1/countries/${counteryCodeForcity}/states/${cityData}/cities`, requestOptions)
+                .then(response => response.json())
+                .then(result => {
+                    const statesData = document.getElementById('city-dropdown');
+                    statesData.innerHTML = "";
+                    result.length >= 0 && result.forEach((data) => {
+                        const option = document.createElement('option');
+                        option.value = data.iso2;
+                        option.innerHTML = data.name;
+                        option.id = data.id;
+                        statesData.appendChild(option);
+                    });
+                }).catch(error => console.log('error', error));
+        })
+
+        // user Details 
+        const userName = document.getElementById("user-name")
+        userName.value = user.name
+        const userEmail = document.getElementById("user-email")
+        userEmail.value = user.email
+        const userNamber = document.getElementById("user-phone")
+        userNamber.value = user.phone
+    </script>
+    <script>
+        const mobileCartBtn = document.getElementById('mobile-cart-btn');
+        mobileCartBtn.addEventListener('click', () => {
+          cart.style.display = "block";
+        });
+      </script>
+
+</body>
+</html>
