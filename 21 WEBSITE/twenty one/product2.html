@@ -845,26 +845,29 @@
           </svg>
           <h2>Cart</h2>
         </div>
-        <div class="cart-items">
+        <div class="cart-items" id="cart-item-container">
+          <div id="carts-items-main"></div>
           <div class="cart-item">
             <div class="left">
               <img src="./assets/img/c1.jpg" alt="" />
             </div>
             <div class="center">
               <div class="product-title">
-                <p class="product-heading">Product title</p>
-                <p>&#8377; 1,XXX</p>
+                <p class="product-heading" id="product-cart-title">
+                  Product title
+                </p>
+                <p id="product-cart-price">&#8377; 1,XXX</p>
               </div>
               <p class="product-color">Product Color &#47; <span>Size</span></p>
               <div class="quantity">
                 <p>Quantity</p>
-                <div class="quantity-count">
+                <div class="quantity-count" id="product-cart-quantity">
                   <span id="minus">-</span>
                   <span id="counter">0</span>
                   <span id="plus">+</span>
                 </div>
               </div>
-              <div class="delete-item">
+              <div class="delete-item" id="product-cart-delete">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="1em"
@@ -878,7 +881,7 @@
               </div>
             </div>
           </div>
-          <div class="cart-item">
+          <!--      <div class="cart-item">
             <div class="left">
               <img src="./assets/img/c10.jpg" alt="" />
             </div>
@@ -902,7 +905,7 @@
                   height="1em"
                   viewBox="0 0 448 512"
                 >
-                  <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                   Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. 
                   <path
                     d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
                   />
@@ -934,7 +937,7 @@
                   height="1em"
                   viewBox="0 0 448 512"
                 >
-                  <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. 
                   <path
                     d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
                   />
@@ -966,7 +969,7 @@
                   height="1em"
                   viewBox="0 0 448 512"
                 >
-                  <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. 
                   <path
                     d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
                   />
@@ -974,7 +977,7 @@
               </div>
             </div>
           </div>
-          <!-- Card Items End -->
+           Card Items End -->
         </div>
         <div class="total-strip">
           <div class="border"></div>
@@ -1216,6 +1219,7 @@
           return res.json();
         })
         .then((res) => {
+          // console.log("Main Res :",res);
           if (res.Data) {
             console.log(res, "test");
             const img = document.getElementById("img-Product");
@@ -1231,14 +1235,30 @@
             description.innerText = res.Data.description.en;
             priceData.innerText = `₹ ${
               res.Data.prices.price
-                ? res.Data.prices.price
-                : res.Data.variants[0].price
+                ? res?.Data?.prices?.price
+                : res?.Data?.variants[0].price
             }`;
 
             const size = document.getElementById("size");
-            const variants = res.Data.variants;
+            const variants = res?.Data?.variants;
+
+            let attributeId = Object.keys(variants[0]);
+            // console.log(attributeId[0]);
+            fetch(`http://localhost:5055/api/attributes/${attributeId[0]}`)
+              .then((res) => res.json())
+              .then((data) => {
+                console.log("atrribue data :", data);
+                const size = document.getElementById("size");
+                size.innerText = data?.name?.en;
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+
+            let cartAtrributeId;
 
             function getAllVariants() {
+              // console.log(`variants`, variants);
               variants.forEach((variant, idx) => {
                 const variantKey = Object.keys(variant);
 
@@ -1251,12 +1271,15 @@
                     return res.json();
                   })
                   .then((data) => {
+                    // console.log(data);
                     if (data.status === "show") {
                       const li = document.createElement("li");
-                      li.appendChild(document.createTextNode(data?.name?.de));
+                      li.appendChild(document.createTextNode(data?.name?.en));
+
+                      li.id = data._id;
 
                       li.onclick = () => {
-                        priceData.innerText = variant["price"];
+                        priceData.innerText = `₹ ${variant["price"]}`;
                       };
 
                       size.appendChild(li);
@@ -1287,22 +1310,23 @@
                   },
                 };
 
-                fetch('http://localhost:5055/api/order/add-cart', {
-                    method: "POST",
-                    headers: {
-                      "Content-Type": "application/json",
-                      Authorization: `Bearer ${userToken}`,
-                    },
-                    body: JSON.stringify(orderData),
+                fetch("http://localhost:5055/api/order/add-cart", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${userToken}`,
+                  },
+                  body: JSON.stringify(orderData),
                 })
-                .then((res) => {
+                  .then((res) => {
                     return res.json();
-                }).then((data) => {
-                    console.log(`Card : `, data);
-                }).catch((err) => {
+                  })
+                  .then((data) => {
+                    // console.log(`Card : `, data);
+                  })
+                  .catch((err) => {
                     console.log(`Error : ${err}`);
-                });
-                
+                  });
               });
             // const variants =
             //   res.Data &&
