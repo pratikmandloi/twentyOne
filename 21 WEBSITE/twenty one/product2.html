@@ -1274,32 +1274,35 @@
               .getElementById("btn_add-to-bag")
               .addEventListener("click", () => {
                 const userToken = JSON.parse(localStorage.getItem("userToken"));
+
                 const orderData = {
-                  productId: id,
-                  img: res.Data.image.toString(),
-                  title: res.Data.title.en,
-                  price: res.Data.prices.price,
                   userId: user._id,
-                  quantity: 1,
-                };
-                
-                addItemToBag(orderData);
-                // console.log(userToken, "userToken", 'order : ', orderData);
-                fetch("http://localhost:5055/api/order/add", {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                     Authorization: `Bearer ${userToken}`,
+                  cart: {
+                    image: res.Data.image.toString(),
+                    productId: id,
+                    title: res.Data.title.en,
+                    price: res.Data.prices.price,
+                    quantity: 1,
+                    attribute: "Red",
                   },
-                  body: JSON.stringify(orderData),
+                };
+
+                fetch('http://localhost:5055/api/order/add-cart', {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                      Authorization: `Bearer ${userToken}`,
+                    },
+                    body: JSON.stringify(orderData),
                 })
-                  .then((response) => response.json())
-                  .then((data) => {
-                    console.log(data, "data");
-                  })
-                  .catch((error) => {
-                    console.error("Error:", error);
-                  });
+                .then((res) => {
+                    return res.json();
+                }).then((data) => {
+                    console.log(`Card : `, data);
+                }).catch((err) => {
+                    console.log(`Error : ${err}`);
+                });
+                
               });
             // const variants =
             //   res.Data &&

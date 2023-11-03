@@ -10,15 +10,19 @@ const { formatAmountForStripe } = require("../lib/stripe/stripe");
 
 const addOrder = async (req, res) => {
   try {
-    console.log(req.user)
+    console.log(req.user);
+    console.log(req.body);
     const newOrder = new Order({
       ...req.body,
       user: req.user._id,
     });
     const order = await newOrder.save();
-    res.status(201).send({order, ok: true, message: `Order Created Successfully`});
+    res
+      .status(201)
+      .send({ order, ok: true, message: `Order Created Successfully` });
     // handleProductQuantity(order.cart);
   } catch (err) {
+    console.log(err);
     res.status(500).send({
       message: err.message,
     });
@@ -46,7 +50,7 @@ const createPaymentIntent = async (req, res) => {
           }
         );
         // console.log("updated_intent", updated_intent);
-        return res.send({updated_intent, ok: true});
+        return res.send({ updated_intent, ok: true });
       }
     } catch (err) {
       if (err.code !== "resource_missing") {
@@ -69,7 +73,7 @@ const createPaymentIntent = async (req, res) => {
     const payment_intent = await stripe.paymentIntents.create(params);
     // console.log("payment_intent", payment_intent);
 
-    res.send({payment_intent, ok: true});
+    res.send({ payment_intent, ok: true });
   } catch (err) {
     const errorMessage =
       err instanceof Error ? err.message : "Internal server error";
@@ -162,7 +166,7 @@ const getOrderCustomer = async (req, res) => {
       delivered:
         totalDeliveredOrder.length === 0 ? 0 : totalDeliveredOrder[0].count,
       totalDoc,
-      ok: true
+      ok: true,
     });
   } catch (err) {
     res.status(500).send({
@@ -173,7 +177,7 @@ const getOrderCustomer = async (req, res) => {
 const getOrderById = async (req, res) => {
   try {
     const order = await Order.findById(req.params.id);
-    res.send({order, ok:true });
+    res.send({ order, ok: true });
   } catch (err) {
     res.status(500).send({
       message: err.message,
@@ -181,9 +185,113 @@ const getOrderById = async (req, res) => {
   }
 };
 
+const addIntoCart = async (req, res) => {
+  try {
+    const user = req.user;
+
+    const order = await Order.findOne({
+      user: user._id,
+    });
+
+    if (!order) {
+      return addOrder(req, res);
+    }
+
+    console.log(req.body);
+    order.cart.push(req.body.cart);
+
+    await order.save();
+
+    return res.status(200).json({
+      message: `Order Added into Cart Successfully`,
+      ok: true,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send({
+      message: err.message,
+    });
+  }
+};
+
+const getAllCarts = async (req, res) => {
+  try {
+    const user = req.user;
+
+    const order = await Order.findOne({
+      user: user._id,
+    });
+
+    return res.status(200).json({
+      order,
+      message: `All Carts fetched Successfully!`,
+      ok: true,
+    });
+  } catch (err) {
+    res.status(500).send({
+      message: err.message,
+    });
+  }
+};
+
+const deleteCart = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = req.user;
+
+    await Order.updateOne({user: user._id} ,
+      {
+        $pull:{ cart : {_id: id}}
+      }
+    );
+
+    return res.status(200).json({
+      message: `Cart item Deleted Successfully !`,
+      ok: true,
+    });
+
+  } catch (err) {
+    res.status(500).send({
+      message: err.message,
+    });
+  }
+};
+
+const updateCartQuantity = async(req,res) => {
+  try {
+
+    const user = req.user;
+    const { id } = req.params;
+    const { newQuantity } = req.body;
+
+    await Order.updateOne({
+      user: user._id,
+      "cart._id" : id
+    }, {
+      $set: {
+        "cart.$.quantity" : newQuantity
+      }
+    })
+    
+    return res.status(200).json({
+      message: `Cart Quantity Updated Successfully !`,
+      ok: true,
+    });
+
+  } catch (err) {
+    res.status(500).send({
+      message: err.message,
+    });
+  }
+}
+
 module.exports = {
   addOrder,
   getOrderById,
   getOrderCustomer,
   createPaymentIntent,
+  addIntoCart,
+  getAllCarts,
+  deleteCart,
+  updateCartQuantity
 };

@@ -12,7 +12,41 @@ const orderSchema = new mongoose.Schema(
       type: Number,
       required: false,
     },
-    cart: [{}],
+    cart: [
+      {
+        productId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Products",
+          required: true
+        },
+        image: {
+          type: String,
+          required: true,
+        },
+        title: {
+          type: String,
+          required: true
+        },
+        attribute: {
+          type: String,
+          required: true
+        },
+        quantity: {
+          type: Number,
+          required: true
+        },
+        price: {
+          type: Number,
+          required: true
+        },
+        status: {
+          type: String,
+          required: true,
+          enum: ["Pending", "Success"],
+          default: "Pending"
+        }
+      },
+    ],
     user_info: {
       name: {
         type: String,
@@ -45,7 +79,7 @@ const orderSchema = new mongoose.Schema(
     },
     subTotal: {
       type: Number,
-      required: false ,
+      required: false,
     },
     shippingCost: {
       type: Number,
