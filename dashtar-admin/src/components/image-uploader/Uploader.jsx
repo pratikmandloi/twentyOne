@@ -186,7 +186,7 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
           <div className="relative">
             <img
               className="inline-flex border rounded-md border-gray-100 dark:border-gray-600 w-24 max-h-24 p-2"
-              src={`${import.meta.env.VITE_APP_API_BASE_URL}/static/${imageUrl?.imageUrl
+              src={`${import.meta.env.VITE_APP_API_BASE_URL}/static/${imageUrl
                 }`}
               alt="product"
             />

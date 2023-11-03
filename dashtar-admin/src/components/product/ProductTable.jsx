@@ -63,7 +63,7 @@ const ProductTable = ({ products, isCheck, setIsCheck, currency, lang }) => {
                   <Avatar
                     className="hidden p-1 mr-2 md:block bg-gray-50 shadow-none"
                     src={`${import.meta.env.VITE_APP_API_BASE_URL}/static/${
-                      product?.image
+                      product.image[0]
                     }`}
                     alt="product"
                   />
