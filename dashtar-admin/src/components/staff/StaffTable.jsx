@@ -24,7 +24,7 @@ const StaffTable = ({ staffs, lang }) => {
   } = useToggleDrawer();
 
   const { globalSetting } = useFilter();
-
+console.log(staffs,"staff");
   return (
     <>
       <DeleteModal id={serviceId} title={title} />
@@ -40,7 +40,9 @@ const StaffTable = ({ staffs, lang }) => {
               <div className="flex items-center">
                 <Avatar
                   className="hidden mr-3 md:block bg-gray-50"
-                  src={staff.image}
+                  src={`${import.meta.env.VITE_APP_API_BASE_URL}/static/${
+                    staff?.image
+                  }`}
                   alt="staff"
                 />
                 <div>

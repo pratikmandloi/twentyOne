@@ -122,7 +122,7 @@ const ShowHideButton = ({
   return (
     <Switch
       onChange={() => handleChangeStatus(id)}
-      checked={status === "show" ? true : false}
+      checked={status === "show"}
       className="react-switch md:ml-0"
       unChecked={status === "show" ? false : true}
       uncheckedIcon={
