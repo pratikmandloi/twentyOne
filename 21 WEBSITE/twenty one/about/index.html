@@ -1220,7 +1220,7 @@
       }
 
       try {
-        const response = await fetch(`http://localhost:5055/api/products/search/${searchValue}`);
+        const response = await fetch(`http://3.225.218.18:5055/api/products/search/${searchValue}`);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -1234,7 +1234,7 @@
             const itemHtml = `
           <div class="item">
           <a href=../product2.html?id=${newData._id}> 
-            <img src=http://localhost:5055/api/static/${newData.image} alt="">
+            <img src=http://3.225.218.18:5055/api/static/${newData.image} alt="">
             <div class="item-details">
               <div class="product-details">
                 <p>${newData.title.en}</p>
@@ -1265,7 +1265,7 @@
     function hideDropDown() {
       dropdown.classList.remove('mouseover');
     }
-    fetch("http://localhost:5055/api/category/all")
+    fetch("http://3.225.218.18:5055/api/category/all")
       .then((res) => res.json())
       .then((data) => {
         
@@ -1297,7 +1297,7 @@
 
     })
 
-    fetch("http://localhost:5055/api/category/all")
+    fetch("http://3.225.218.18:5055/api/category/all")
       .then((res) => res.json())
       .then((data) => {
         

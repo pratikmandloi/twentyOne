@@ -9,7 +9,7 @@ card.onclick = () => {
 function fetchCartData(userToken) {
   console.log("API Running");
 
-  fetch(`http://localhost:5055/api/order/get-carts`, {
+  fetch(`http://3.225.218.18:5055/api/order/get-carts`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -88,7 +88,7 @@ function fetchCartData(userToken) {
         cardItem.onclick = () => {
             const cardId = cardItem.getAttribute("value");
 
-            fetch(`http://localhost:5055/api/order/delete-cart/${cardId}`,{
+            fetch(`http://3.225.218.18:5055/api/order/delete-cart/${cardId}`,{
                 method: "POST",
                   headers: {
                     "Content-Type": "application/json",

@@ -3,14 +3,14 @@
 
 const urlParams2 = new URLSearchParams(window.location.search);
 const id2 = urlParams2.get("id");
-fetch(`http://localhost:5055/api/products/categories2/${id2}`)
+fetch(`http://3.225.218.18:5055/api/products/categories2/${id2}`)
   .then(res => { return res.json() })
   .then(data => {
     if (data && data.Data.length >= 0) {
       const noiseData = data.Data.map((data) => {
         return {
           id: data._id,
-          img: `http://localhost:5055/api/static/${data.image}`,
+          img: `http://3.225.218.18:5055/api/static/${data.image}`,
           name: data.title.en,
           price: data.prices.price,
         }
@@ -63,14 +63,14 @@ function displayFirstSec(data) {
 
 const urlParams3 = new URLSearchParams(window.location.search);
 const id3 = urlParams3.get("id");
-fetch(`http://localhost:5055/api/products/categories3/${id3}`)
+fetch(`http://3.225.218.18:5055/api/products/categories3/${id3}`)
   .then(res => { return res.json() })
   .then(data => {
     if (data && data.Data.length >= 0) {
       const noiseData = data.Data.map((data) => {
         return {
           id: data._id,
-          img: `http://localhost:5055/api/static/${data.image}`,
+          img: `http://3.225.218.18:5055/api/static/${data.image}`,
           name: data.title.en,
           price: data.prices.price,
         }
@@ -124,14 +124,14 @@ function displaySecondSec(data) {
 }
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
-fetch(`http://localhost:5055/api/products/categories/${id}`)
+fetch(`http://3.225.218.18:5055/api/products/categories/${id}`)
   .then(res => { return res.json() })
   .then(data => {
     if (data && data.Data.length >= 0) {
       const noiseData = data.Data.map((data) => {
         return {
           id: data._id,
-          img: `http://localhost:5055/api/static/${data.image}`,
+          img: `http://3.225.218.18:5055/api/static/${data.image}`,
           name: data.title.en,
           price: data.prices.price,
         }

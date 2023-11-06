@@ -332,7 +332,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" type="module"></script>
   <script>
     const homePage = document.getElementById("home");
-    fetch("http://localhost:5055/api/uploads/img")
+    fetch("http://3.225.218.18:5055/api/uploads/img")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -341,7 +341,7 @@
       })
       .then((data) => {
         const imgName = data.Image.image.originalname;
-        homePage.style.backgroundImage = `url(http://localhost:5055/api/static/${imgName})`;
+        homePage.style.backgroundImage = `url(http://3.225.218.18:5055/api/static/${imgName})`;
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -472,7 +472,7 @@
     function hideDropDown() {
       dropdown.classList.remove('mouseover');
     }
-    fetch("http://localhost:5055/api/category/all")
+    fetch("http://3.225.218.18:5055/api/category/all")
       .then((res) => res.json())
       .then((data) => {
         
@@ -503,7 +503,7 @@
 
     })
 
-    fetch("http://localhost:5055/api/category/all")
+    fetch("http://3.225.218.18:5055/api/category/all")
       .then((res) => res.json())
       .then((data) => {
         

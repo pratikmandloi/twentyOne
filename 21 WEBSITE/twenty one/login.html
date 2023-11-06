@@ -681,7 +681,7 @@
       password: document.querySelector("#user-password").value,
     };
     const err = document.querySelector("#err");
-    fetch("http://localhost:5055/api/customer/auth/login", {
+    fetch("http://3.225.218.18:5055/api/customer/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -766,7 +766,7 @@
   function hideDropDown() {
     dropdown.classList.remove("mouseover");
   }
-  fetch("http://localhost:5055/api/category/all")
+  fetch("http://3.225.218.18:5055/api/category/all")
     .then((res) => res.json())
     .then((data) => {
       if (data.length > 0) {
@@ -795,7 +795,7 @@
     mobileCollection.classList.toggle("collection-active");
   });
 
-  fetch("http://localhost:5055/api/category/all")
+  fetch("http://3.225.218.18:5055/api/category/all")
     .then((res) => res.json())
     .then((data) => {
       if (data.length > 0) {

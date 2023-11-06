@@ -7,7 +7,7 @@ document.getElementById("search-field").addEventListener("input", async (e) => {
   }
 
   try {
-    const response = await fetch(`http://localhost:5055/api/products/search/${searchValue}`);
+    const response = await fetch(`http://3.225.218.18:5055/api/products/search/${searchValue}`);
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
@@ -21,7 +21,7 @@ document.getElementById("search-field").addEventListener("input", async (e) => {
         const itemHtml = `
           <div class="item">
           <a href=./product2.html?id=${newData._id}> 
-            <img src=http://localhost:5055/api/static/${newData.image} alt="">
+            <img src=http://3.225.218.18:5055/api/static/${newData.image} alt="">
             <div class="item-details">
               <div class="product-details">
                 <p>${newData.title.en}</p>
