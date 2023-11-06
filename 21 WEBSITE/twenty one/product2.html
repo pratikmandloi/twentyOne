@@ -339,7 +339,9 @@
         <div class="pro-pri" id="price">₹ 5,990.00</div>
         <div class="pro-mrp">MRP incl. of all taxes</div>
 
-        <ul class="size-guide" id="size"></ul>
+        <ul class="size-guide" id="size">
+          <p id="size-heading"> </p>
+        </ul>
         <div class="size-row">
           <button class="size-btn your-guide-info">FIND YOUR SIZE</button>
           <button class="size-btn size-guide-info">SIZE GUIDE</button>
@@ -1248,8 +1250,10 @@
               .then((res) => res.json())
               .then((data) => {
                 console.log("atrribue data :", data);
-                const size = document.getElementById("size");
-                size.innerText = data?.name?.en;
+                // const size = document.getElementById("size");
+                // size.innerText = data?.name?.en;
+                const p = document.getElementById("size-heading");
+                p.innerText = data.name.en;
               })
               .catch((err) => {
                 console.log(err);
@@ -1257,7 +1261,7 @@
 
             let cartAtrributeId;
 
-            function getAllVariants() {
+            // function getAllVariants() {
               // console.log(`variants`, variants);
               variants.forEach((variant, idx) => {
                 const variantKey = Object.keys(variant);
@@ -1271,7 +1275,7 @@
                     return res.json();
                   })
                   .then((data) => {
-                    // console.log(data);
+                    console.log(data);
                     if (data.status === "show") {
                       const li = document.createElement("li");
                       li.appendChild(document.createTextNode(data?.name?.en));
@@ -1289,9 +1293,9 @@
                     console.log(err);
                   });
               });
-            }
+            // }
 
-            getAllVariants();
+            // getAllVariants();
 
             document
               .getElementById("btn_add-to-bag")
