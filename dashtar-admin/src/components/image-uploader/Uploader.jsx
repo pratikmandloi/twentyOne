@@ -45,7 +45,7 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
   });
 
   useEffect(() => {
-    console.log(imageUrl, 'imageUrl')
+    console.log(imageUrl, "imageUrl");
     if (fileRejections) {
       fileRejections.map(({ file, errors }) => (
         <li key={file.path}>
@@ -55,8 +55,8 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
               <li key={e.code}>
                 {e.code === "too-many-files"
                   ? notifyError(
-                    `Maximum ${globalSetting?.number_of_image_per_product} Image Can be Upload!`
-                  )
+                      `Maximum ${globalSetting?.number_of_image_per_product} Image Can be Upload!`
+                    )
                   : notifyError(e.message)}
               </li>
             ))}
@@ -64,13 +64,13 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
         </li>
       ));
     }
-    console.log(imageUrl, 'imh')
+    console.log(imageUrl, "imh");
     if (files) {
       files.forEach((file) => {
         if (
           product &&
           imageUrl?.length + files?.length >
-          globalSetting?.number_of_image_per_product
+            globalSetting?.number_of_image_per_product
         ) {
           return notifyError(
             `Maximum ${globalSetting?.number_of_image_per_product} Image Can be Upload!`
@@ -88,7 +88,7 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
               .then((res) => {
                 notifySuccess("Image Uploaded successfully!");
                 setLoading(false);
-                console.log(product)
+                console.log(product);
                 if (product) {
                   res.Data.map((data) => {
                     setImageUrl((imgUrl) => [
@@ -186,8 +186,14 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
           <div className="relative">
             <img
               className="inline-flex border rounded-md border-gray-100 dark:border-gray-600 w-24 max-h-24 p-2"
+<<<<<<< HEAD
               src={`${import.meta.env.VITE_APP_API_BASE_URL}/static/${imageUrl
                 }`}
+=======
+              src={`${
+                import.meta.env.VITE_APP_API_BASE_URL
+              }/static/${imageUrl}`}
+>>>>>>> dev
               alt="product"
             />
             <button

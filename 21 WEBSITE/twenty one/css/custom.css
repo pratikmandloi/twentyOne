@@ -648,8 +648,11 @@ body {
 
 .size-guide li:hover {
   background-color: #f2f2f2;
+  cursor: pointer;
 }
-
+.attribute-active{
+  background-color: #f2f2f2;
+}
 .size-row {
   display: flex;
   justify-content: space-between;
