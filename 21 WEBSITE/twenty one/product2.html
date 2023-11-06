@@ -1261,7 +1261,7 @@
 
             let cartAtrributeId;
 
-            // function getAllVariants() {
+            function getAllVariants() {
               // console.log(`variants`, variants);
               variants.forEach((variant, idx) => {
                 const variantKey = Object.keys(variant);
@@ -1275,27 +1275,37 @@
                     return res.json();
                   })
                   .then((data) => {
-                    console.log(data);
+                    console.log(data,'main-s');
                     if (data.status === "show") {
                       const li = document.createElement("li");
-                      li.appendChild(document.createTextNode(data?.name?.en));
+                      li.innerText = data?.name?.en;
 
                       li.id = data._id;
-
-                      li.onclick = () => {
-                        priceData.innerText = `₹ ${variant["price"]}`;
-                      };
-
                       size.appendChild(li);
+
+                      console.log(size.querySelectorAll('li'));
+                      size.querySelectorAll('li').forEach(element => {
+                        // console.log(element);
+                        element.addEventListener('click', () => {
+                          size.querySelectorAll('li').forEach(item => item.classList.remove('attribute-active'));
+                          element.classList.add('attribute-active')
+                        })
+                      });
+
+                      li.onclick = (element) => {
+                        priceData.innerText = `₹ ${variant["price"]}`;
+                        li.classList.add('attribute-active');
+                      };
+                      
                     }
                   })
                   .catch((err) => {
                     console.log(err);
                   });
               });
-            // }
+            }
 
-            // getAllVariants();
+            getAllVariants();
 
             document
               .getElementById("btn_add-to-bag")
@@ -1681,6 +1691,20 @@
     mobileCartBtn.addEventListener("click", () => {
       cart.style.display = "block";
     });
+  </script>
+  <script>
+    const mainSize = document.querySelector('#size');
+    const sizeList = mainSize.childNodes;
+
+    // console.log(sizeList);
+    mainSize.childNodes.forEach((element) => {
+      console.log(element);
+      element.addEventListener('click', (items) => {
+        mainSize.childNodes.forEach(item => item.classList.remove('attribute-active'));
+        element.classList.add('attribute-active');
+        console.log(element);
+      })
+    })
   </script>
 
   <script>

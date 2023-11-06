@@ -638,7 +638,14 @@ body {
   height: auto;
   border-top: 1px solid;
   border-bottom: 1px solid;
-  margin-top: 40px;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+.size-guide #size-heading{
+  font-size: 15px !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
 .size-guide li {
